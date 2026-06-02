@@ -4,11 +4,10 @@ import {
   BookOpen,
   CheckCircle2,
   Clock,
-  Cpu,
-  Hammer,
   Layers,
-  ListChecks,
-  ShieldCheck,
+  Mail,
+  Search,
+  Send,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -455,6 +454,24 @@ const projectIdeas = [
   "3D-printed smart enclosure for a sensor node",
 ];
 
+const buildGuideSteps = [
+  "Pick one clear problem and write a one-sentence goal, target user, and success metric.",
+  "List the parts, tools, software accounts, budget, and safety requirements before buying anything.",
+  "Sketch the architecture: inputs, processing, outputs, power, data storage, and user interface.",
+  "Build the smallest working prototype first, then test each module separately with notes and photos.",
+  "Integrate modules gradually, record failures, and improve wiring, code structure, enclosure, and UX.",
+  "Publish a final guide with setup steps, screenshots, source files, credits, limitations, and maintenance tips.",
+];
+
+const projectIdeas = [
+  "AI camera that counts objects on a workbench",
+  "ESP32 environmental monitor with dashboard",
+  "Raspberry Pi media and backup server",
+  "ROS2 rover with obstacle avoidance",
+  "Portfolio website with tutorial articles",
+  "3D-printed smart enclosure for a sensor node",
+];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
@@ -468,13 +485,62 @@ const itemVariants = {
   },
 };
 
+const contactEmail = "CosmicNova369@gmail.com";
+
+function buildMailtoLink(data: {
+  name: string;
+  email: string;
+  topic: string;
+  message: string;
+}) {
+  const subject = data.topic.trim()
+    ? `Xevorith tutorial request: ${data.topic.trim()}`
+    : "Xevorith tutorial request";
+  const body = [
+    `Name: ${data.name || "Not provided"}`,
+    `Email: ${data.email || "Not provided"}`,
+    `Topic: ${data.topic || "Not provided"}`,
+    "",
+    "Message:",
+    data.message || "Please help me choose or build a tutorial project.",
+  ].join("\n");
+
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export default function TutorialsPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [guideRequest, setGuideRequest] = useState({
+    name: "",
+    email: "",
+    topic: "",
+    message: "",
+  });
 
   const filtered =
     activeCategory === "All"
       ? tutorials
       : tutorials.filter((t) => t.category === activeCategory);
+
+  const featuredTutorials = [
+    tutorials.find((tutorial) => tutorial.id === 14),
+    tutorials.find((tutorial) => tutorial.id === 24),
+    tutorials.find((tutorial) => tutorial.id === 28),
+  ].filter((tutorial): tutorial is Tutorial => Boolean(tutorial));
+
+  const handleGuideRequestChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setGuideRequest((previous) => ({
+      ...previous,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleGuideRequestSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    window.location.href = buildMailtoLink(guideRequest);
+  };
 
   return (
     <div className="relative overflow-hidden px-6 py-12 md:py-16">
@@ -493,7 +559,7 @@ export default function TutorialsPage() {
         }}
       />
 
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -510,10 +576,10 @@ export default function TutorialsPage() {
             }}
           >
             <BookOpen className="size-3.5" />
-            <span>Learning Center</span>
+            <span>Xevorith Blog</span>
           </div>
           <h1
-            className="font-display text-4xl font-extrabold tracking-tight md:text-5xl"
+            className="font-display text-4xl font-extrabold tracking-tight md:text-6xl"
             style={{
               background: "linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)",
               WebkitBackgroundClip: "text",
@@ -522,83 +588,184 @@ export default function TutorialsPage() {
               filter: "drop-shadow(0 0 24px rgba(0,212,255,0.4))",
             }}
           >
-            Tutorials, Categories & Project Guides
+            Tutorials, Blogs & Build Guides
           </h1>
-          <p className="mx-auto mt-3 max-w-3xl text-muted-foreground">
-            Explore detailed, original learning paths across engineering,
-            software, design, hardware, and career topics. Each guide is written
-            to help builders plan safely, prototype clearly, and publish useful
-            project documentation.
+          <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
+            A blog-style learning hub for practical engineering articles:
+            featured guides first, clean category browsing, latest posts, and a
+            direct email request form for custom project help.
           </p>
         </motion.div>
 
-        <motion.section
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.05 }}
-          className="mb-12 grid gap-5 lg:grid-cols-3"
-          aria-labelledby="build-guide-title"
-        >
-          <div className="glass-card rounded-2xl border-t-2 border-t-[#00d4ff] p-6 lg:col-span-2">
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-cyan-400/10 text-[#00d4ff]">
-                <Hammer className="size-5" />
-              </div>
+        <section className="mb-12 grid gap-6 lg:grid-cols-[1.6fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, x: -18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45 }}
+            className="glass-card relative overflow-hidden rounded-3xl border-t-2 border-t-[#00d4ff] p-6 md:p-8"
+          >
+            <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <h2
-                  id="build-guide-title"
-                  className="font-display text-2xl font-bold text-foreground"
-                >
-                  How to Build Any Xevorith Project
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  A practical workflow for turning an idea into a documented,
-                  AdSense-friendly educational tutorial.
+                <p className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-[#00d4ff]">
+                  <Search className="size-4" /> Featured Articles
                 </p>
+                <h2 className="font-display text-3xl font-bold text-foreground">
+                  Start with the most useful project guides
+                </h2>
               </div>
+              <span className="rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/10 px-4 py-2 text-sm font-semibold text-[#00d4ff]">
+                {tutorials.length}+ guides
+              </span>
             </div>
-            <div className="grid gap-3 md:grid-cols-2">
-              {buildGuideSteps.map((step, index) => (
-                <div
-                  key={step}
-                  className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
-                >
-                  <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#00d4ff]">
-                    <ListChecks className="size-4" />
-                    Step {index + 1}
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {step}
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {featuredTutorials.map((tutorial) => {
+                const colors =
+                  categoryColors[tutorial.category] ?? categoryColors.AI;
+                return (
+                  <article
+                    key={tutorial.id}
+                    className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div
+                      className="absolute inset-x-0 top-0 h-1"
+                      style={{ background: colors.accent }}
+                    />
+                    <div className="mb-4 flex flex-wrap items-center gap-2">
+                      <span
+                        className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                        style={{
+                          background: `${colors.accent}18`,
+                          color: colors.accent,
+                          border: `1px solid ${colors.accent}40`,
+                        }}
+                      >
+                        {tutorial.category}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {tutorial.level}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold leading-snug text-foreground">
+                      {tutorial.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {tutorial.description}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between text-xs font-semibold text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Clock className="size-3" /> {tutorial.duration}
+                      </span>
+                      <a
+                        href={buildMailtoLink({
+                          name: "",
+                          email: "",
+                          topic: tutorial.title,
+                          message: `Hi Xevorith, I want help with this tutorial: ${tutorial.title}`,
+                        })}
+                        className="flex items-center gap-1 transition-colors hover:text-[#00d4ff]"
+                      >
+                        Ask help <ArrowRight className="size-3" />
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          <motion.aside
+            initial={{ opacity: 0, x: 18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="space-y-5"
+          >
+            <div className="glass-card rounded-3xl border-t-2 border-t-[#a855f7] p-6">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex size-11 items-center justify-center rounded-xl bg-purple-400/10 text-[#a855f7]">
+                  <Mail className="size-5" />
+                </div>
+                <div>
+                  <h2 className="font-display text-xl font-bold text-foreground">
+                    Request a Tutorial
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Send mail directly to us from the website.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="glass-card rounded-2xl border-t-2 border-t-[#a855f7] p-6">
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-purple-400/10 text-[#a855f7]">
-                <Cpu className="size-5" />
               </div>
-              <h2 className="font-display text-xl font-bold text-foreground">
-                Project Ideas to Start
+
+              <form onSubmit={handleGuideRequestSubmit} className="space-y-3">
+                <input
+                  name="name"
+                  value={guideRequest.name}
+                  onChange={handleGuideRequestChange}
+                  placeholder="Your name"
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                />
+                <input
+                  name="email"
+                  type="email"
+                  value={guideRequest.email}
+                  onChange={handleGuideRequestChange}
+                  placeholder="Your email"
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                />
+                <input
+                  name="topic"
+                  value={guideRequest.topic}
+                  onChange={handleGuideRequestChange}
+                  placeholder="Tutorial topic"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                />
+                <textarea
+                  name="message"
+                  value={guideRequest.message}
+                  onChange={handleGuideRequestChange}
+                  placeholder="Tell us what you want to build..."
+                  rows={4}
+                  className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                />
+                <button
+                  type="submit"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-black transition hover:scale-[1.01]"
+                  style={{
+                    background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
+                    boxShadow: "0 0 24px rgba(0,212,255,0.28)",
+                  }}
+                >
+                  <Send className="size-4" />
+                  Send Email Request
+                </button>
+              </form>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="mt-4 block text-center text-sm font-semibold text-[#00d4ff] underline underline-offset-4"
+              >
+                Or email {contactEmail}
+              </a>
+            </div>
+
+            <div className="glass-card rounded-3xl border-t-2 border-t-[#00ffc8] p-6">
+              <h2 className="font-display mb-4 text-xl font-bold text-foreground">
+                Build Guide Workflow
               </h2>
+              <div className="space-y-3">
+                {buildGuideSteps.slice(0, 4).map((step, index) => (
+                  <div key={step} className="flex gap-3 text-sm">
+                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#00ffc8]/10 text-xs font-bold text-[#00ffc8]">
+                      {index + 1}
+                    </span>
+                    <p className="leading-relaxed text-muted-foreground">
+                      {step}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="space-y-3">
-              {projectIdeas.map((idea) => (
-                <div key={idea} className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#00ffc8]" />
-                  <span className="text-muted-foreground">{idea}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-5 rounded-xl border border-[#00ffc8]/20 bg-[#00ffc8]/5 p-4 text-sm leading-relaxed text-muted-foreground">
-              <ShieldCheck className="mb-2 size-5 text-[#00ffc8]" />
-              Include safety notes, honest limitations, original images, and
-              troubleshooting sections so readers can learn responsibly.
-            </div>
-          </div>
-        </motion.section>
+          </motion.aside>
+        </section>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -636,10 +803,18 @@ export default function TutorialsPage() {
           })}
         </motion.div>
 
-        <div className="mb-5 flex items-center gap-2 text-sm text-muted-foreground">
-          <Layers className="size-4 text-[#00d4ff]" />
-          Showing {filtered.length} guide{filtered.length === 1 ? "" : "s"} in{" "}
-          {activeCategory}
+        <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Layers className="size-4 text-[#00d4ff]" />
+            Showing {filtered.length} article{filtered.length === 1 ? "" : "s"}{" "}
+            in {activeCategory}
+          </div>
+          <a
+            href={`mailto:${contactEmail}?subject=${encodeURIComponent("Xevorith tutorial question")}`}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#00d4ff] underline underline-offset-4"
+          >
+            <Mail className="size-4" /> Contact tutorial team
+          </a>
         </div>
 
         <AnimatePresence mode="wait">
@@ -649,7 +824,7 @@ export default function TutorialsPage() {
             initial="hidden"
             animate="visible"
             exit={{ opacity: 0 }}
-            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-5 md:grid-cols-2"
           >
             {filtered.map((tutorial, index) => {
               const colors =
@@ -659,50 +834,64 @@ export default function TutorialsPage() {
                   key={tutorial.id}
                   variants={itemVariants}
                   data-ocid={`tutorials.item.${index + 1}`}
-                  className={cn(
-                    "glass-card group relative overflow-hidden rounded-2xl border-t-2 p-5 transition-all duration-300",
-                    colors.border,
-                    colors.glow,
-                  )}
-                  style={{ borderTopColor: colors.accent }}
+                  className="glass-card group relative overflow-hidden rounded-2xl border border-white/10 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(0,212,255,0.14)]"
+                  style={{ borderTop: `2px solid ${colors.accent}` }}
                 >
-                  <div
-                    className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                    style={{
-                      background: `linear-gradient(90deg, transparent, ${colors.accent}80, transparent)`,
-                    }}
-                  />
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <span
-                      className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                  <div className="flex h-full flex-col gap-4 md:flex-row">
+                    <div
+                      className="flex min-h-28 w-full shrink-0 items-center justify-center rounded-2xl md:w-36"
                       style={{
-                        background: `${colors.accent}18`,
-                        color: colors.accent,
-                        border: `1px solid ${colors.accent}40`,
+                        background: `linear-gradient(135deg, ${colors.accent}22, rgba(255,255,255,0.04))`,
+                        border: `1px solid ${colors.accent}26`,
                       }}
                     >
-                      {tutorial.category}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock className="size-3" />
-                      {tutorial.duration}
-                    </span>
-                    <span className="rounded-full border border-white/10 px-2 py-0.5 text-xs text-muted-foreground">
-                      {tutorial.level}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-base font-bold leading-snug text-foreground">
-                    {tutorial.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {tutorial.description}
-                  </p>
-                  <div
-                    className="mt-4 flex items-center gap-1 text-xs font-semibold opacity-0 transition-opacity group-hover:opacity-100"
-                    style={{ color: colors.accent }}
-                  >
-                    <span>Use this guide</span>
-                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                      <BookOpen
+                        className="size-9"
+                        style={{ color: colors.accent }}
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col">
+                      <div className="mb-2 flex flex-wrap items-center gap-2">
+                        <span
+                          className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                          style={{
+                            background: `${colors.accent}18`,
+                            color: colors.accent,
+                            border: `1px solid ${colors.accent}40`,
+                          }}
+                        >
+                          {tutorial.category}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="size-3" />
+                          {tutorial.duration}
+                        </span>
+                        <span className="rounded-full border border-white/10 px-2 py-0.5 text-xs text-muted-foreground">
+                          {tutorial.level}
+                        </span>
+                      </div>
+                      <h3 className="font-display text-lg font-bold leading-snug text-foreground">
+                        {tutorial.title}
+                      </h3>
+                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                        {tutorial.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold">
+                        <span style={{ color: colors.accent }}>Read guide</span>
+                        <a
+                          href={buildMailtoLink({
+                            name: "",
+                            email: "",
+                            topic: tutorial.title,
+                            message: `Hi Xevorith, please send more details about: ${tutorial.title}`,
+                          })}
+                          className="inline-flex items-center gap-1 text-[#00d4ff] transition hover:text-white"
+                        >
+                          Ask by email
+                          <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                   <div
                     className="pointer-events-none absolute -right-4 -bottom-4 h-20 w-20 rounded-full opacity-15 blur-xl"
@@ -722,6 +911,18 @@ export default function TutorialsPage() {
             </p>
           </div>
         )}
+
+        <section className="mt-12 grid gap-5 md:grid-cols-3">
+          {projectIdeas.map((idea) => (
+            <div
+              key={idea}
+              className="glass-card rounded-2xl border border-white/10 p-5 text-sm leading-relaxed text-muted-foreground"
+            >
+              <CheckCircle2 className="mb-3 size-5 text-[#00ffc8]" />
+              {idea}
+            </div>
+          ))}
+        </section>
       </div>
     </div>
   );

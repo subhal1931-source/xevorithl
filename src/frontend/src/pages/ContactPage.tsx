@@ -5,6 +5,8 @@ import { Mail, MapPin, MessageSquare, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
+const contactEmail = "CosmicNova369@gmail.com";
+
 const contactTopics = [
   "Tutorial corrections, missing steps, or requests for clearer screenshots.",
   "Project planning questions for AI, robotics, electronics, SBC, web, game, IoT, and design builds.",
@@ -35,6 +37,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = formData.subject.trim()
+      ? `Xevorith contact: ${formData.subject.trim()}`
+      : "Xevorith contact request";
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      "",
+      "Message:",
+      formData.message,
+    ].join("\n");
+
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -136,14 +150,14 @@ export default function ContactPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:CosmicNova369@gmail.com"
+                      href={`mailto:${contactEmail}`}
                       className="text-sm transition-all duration-200"
                       style={{
                         color: "#00d4ff",
                         textShadow: "0 0 8px rgba(0,212,255,0.4)",
                       }}
                     >
-                      CosmicNova369@gmail.com
+                      {contactEmail}
                     </a>
                   </div>
                 </div>
@@ -177,9 +191,9 @@ export default function ContactPage() {
                   }}
                 >
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    We typically respond within 24-48 hours. For urgent
-                    inquiries, please mention &quot;Urgent&quot; in the subject
-                    line.
+                    This form opens your email app with a pre-filled message to
+                    {contactEmail}. Send the email from your account so we can
+                    reply directly.
                   </p>
                 </div>
               </div>
@@ -324,12 +338,12 @@ export default function ContactPage() {
                         textShadow: "0 0 8px rgba(0,255,200,0.5)",
                       }}
                     >
-                      ✓ Message Sent!
+                      ✓ Opening Email App!
                     </span>
                   ) : (
                     <>
                       <Send className="size-4" />
-                      Send Message
+                      Send Email
                     </>
                   )}
                 </button>
