@@ -5,6 +5,21 @@ import { Mail, MapPin, MessageSquare, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
+const contactEmail = "CosmicNova369@gmail.com";
+
+const contactTopics = [
+  "Tutorial corrections, missing steps, or requests for clearer screenshots.",
+  "Project planning questions for AI, robotics, electronics, SBC, web, game, IoT, and design builds.",
+  "Collaboration, guest tutorial, education, and community partnership inquiries.",
+  "Privacy, terms, disclaimer, advertising, affiliate, or content transparency questions.",
+];
+
+const contactNotes = [
+  "Please include your project goal, parts list, software versions, error messages, and photos or logs if relevant.",
+  "Do not send passwords, private keys, payment details, or sensitive personal information through this form.",
+  "We cannot promise custom engineering support for every message, but we review reader feedback to improve guides.",
+];
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +37,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = formData.subject.trim()
+      ? `Xevorith contact: ${formData.subject.trim()}`
+      : "Xevorith contact request";
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      "",
+      "Message:",
+      formData.message,
+    ].join("\n");
+
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -123,14 +150,14 @@ export default function ContactPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:CosmicNova369@gmail.com"
+                      href={`mailto:${contactEmail}`}
                       className="text-sm transition-all duration-200"
                       style={{
                         color: "#00d4ff",
                         textShadow: "0 0 8px rgba(0,212,255,0.4)",
                       }}
                     >
-                      CosmicNova369@gmail.com
+                      {contactEmail}
                     </a>
                   </div>
                 </div>
@@ -164,9 +191,9 @@ export default function ContactPage() {
                   }}
                 >
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    We typically respond within 24-48 hours. For urgent
-                    inquiries, please mention &quot;Urgent&quot; in the subject
-                    line.
+                    This form opens your email app with a pre-filled message to
+                    {contactEmail}. Send the email from your account so we can
+                    reply directly.
                   </p>
                 </div>
               </div>
@@ -311,12 +338,12 @@ export default function ContactPage() {
                         textShadow: "0 0 8px rgba(0,255,200,0.5)",
                       }}
                     >
-                      ✓ Message Sent!
+                      ✓ Opening Email App!
                     </span>
                   ) : (
                     <>
                       <Send className="size-4" />
-                      Send Message
+                      Send Email
                     </>
                   )}
                 </button>
@@ -329,6 +356,47 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="mt-10 grid gap-6 lg:grid-cols-2"
+          aria-label="Contact guidance"
+        >
+          <div className="glass-card rounded-2xl border-t-2 border-t-[#00ffc8] p-6">
+            <h2 className="font-display mb-4 text-xl font-bold text-foreground">
+              What You Can Contact Us About
+            </h2>
+            <div className="space-y-3">
+              {contactTopics.map((topic) => (
+                <p
+                  key={topic}
+                  className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground"
+                >
+                  {topic}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl border-t-2 border-t-[#4d9fff] p-6">
+            <h2 className="font-display mb-4 text-xl font-bold text-foreground">
+              Helpful Message Tips
+            </h2>
+            <div className="space-y-3">
+              {contactNotes.map((note) => (
+                <p
+                  key={note}
+                  className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground"
+                >
+                  {note}
+                </p>
+              ))}
+            </div>
+          </div>
+        </motion.section>
       </div>
     </div>
   );
