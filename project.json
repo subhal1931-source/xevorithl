@@ -1,0 +1,23 @@
+{
+  "overview": "A futuristic portfolio hub for Xevorith Engineering Lab featuring glassmorphic design, sidebar navigation, and sections for services, tutorials, about, and contact.",
+  "features": [
+    "Sidebar navigation with Home, Tutorials, About, and Contact pages",
+    "Glassmorphism frosted glass design with neon cyan accents on black background",
+    "Hero section with four service cards for AI, robotics, apps, games, and design",
+    "Tutorials page with category filters for AI, Robotics, Electronics, and SBC projects",
+    "Glass-styled contact form with CosmicNova369@gmail.com",
+    "Persistent footer with trust links on every page",
+    "Fully responsive layout"
+  ],
+  "category": "portfolio",
+  "tags": [
+    "portfolio",
+    "glassmorphism",
+    "futuristic",
+    "engineering",
+    "dark-theme",
+    "ai",
+    "robotics"
+  ],
+  "last_updated": "2026-06-02T08:09:09.570Z"
+}
