@@ -44,6 +44,7 @@ type Tutorial = {
   duration: string;
   level: "Beginner" | "Intermediate" | "Advanced";
   description: string;
+  guide?: ProjectGuide;
 };
 
 const palette = [
@@ -436,6 +437,261 @@ const tutorials: Tutorial[] = [
     description:
       "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations.",
   },
+
+  {
+    id: 40,
+    title: "Build a Safe DC Bench Power Supply",
+    category: "Electronics",
+    duration: "120 min",
+    level: "Intermediate",
+    description:
+      "Build a compact adjustable bench power supply for electronics testing using a DC adapter, buck converter, meters, fuses, and banana outputs.",
+    guide: {
+      components: [
+        "24V 5A certified DC power adapter (use an external adapter; do not wire AC mains inside the project)",
+        "Adjustable CC/CV buck converter module rated above your target current",
+        "Digital voltmeter/ammeter panel meter with shunt if required",
+        "Inline fuse holder with 5A fuse for input protection",
+        "Panel power switch rated for DC current",
+        "Red and black banana binding posts",
+        "Output terminal block or XT60 connector for internal wiring",
+        "Project enclosure with ventilation slots",
+        "16-18 AWG wire for power path and 22 AWG wire for meter signals",
+        "Heat-shrink tubing, cable glands, screws, labels, and rubber feet",
+        "Multimeter for calibration and polarity checks",
+      ],
+      wiring: [
+        "DC adapter positive -> fuse -> panel switch -> buck converter VIN+.",
+        "DC adapter negative -> buck converter VIN- and common meter ground.",
+        "Buck converter OUT+ -> ammeter shunt/current input -> red banana post.",
+        "Buck converter OUT- -> black banana post and meter voltage negative reference.",
+        "Panel voltmeter sense positive connects to the final red output post, not only the buck module pad.",
+        "Panel voltmeter sense negative connects to the final black output post.",
+        "Keep high-current wires short, twisted where possible, and separated from thin meter signal wires.",
+        "Add strain relief at the DC input jack so cable movement cannot pull internal terminals loose.",
+        "Label polarity, max voltage, max current, and fuse rating on the enclosure before use.",
+      ],
+      steps: [
+        "Plan target output range, for example 0-20V and 0-3A, and choose a buck converter with at least 25% extra rating.",
+        "Drill/cut the enclosure for DC input, switch, display, adjustment knobs, vents, and banana posts.",
+        "Mount the buck converter with airflow clearance and avoid letting the underside touch metal screws.",
+        "Wire the input fuse and switch first, then verify polarity at VIN with a multimeter before connecting the buck converter.",
+        "Wire the output through the current shunt or ammeter path exactly as the meter datasheet shows.",
+        "Set the buck converter voltage with no load, then connect a dummy load and set the current limit slowly.",
+        "Compare panel meter readings against a multimeter and adjust calibration screws if the module supports it.",
+        "Run a 30-minute load test at half current; check heat, smell, loose terminals, and voltage drop.",
+        "Close the enclosure, add labels, and write a small table of safe starter settings for Arduino, ESP32, motors, and LEDs.",
+        "Never connect this DIY supply to AC mains internally; use only the certified external DC adapter input.",
+      ],
+      code: `// Optional Arduino voltage/current logger for your bench supply
+// Use voltage dividers and current sensors rated for your supply.
+const int voltagePin = A0;
+const int currentPin = A1;
+const float adcRef = 5.0;
+const float voltageDividerRatio = 5.0; // adjust after calibration
+const float ampsPerVolt = 1.0; // adjust for your current sensor
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  float vSense = analogRead(voltagePin) * adcRef / 1023.0;
+  float iSense = analogRead(currentPin) * adcRef / 1023.0;
+  float outputVoltage = vSense * voltageDividerRatio;
+  float outputCurrent = iSense * ampsPerVolt;
+  Serial.print("V="); Serial.print(outputVoltage, 2);
+  Serial.print(" I="); Serial.println(outputCurrent, 2);
+  delay(500);
+}`,
+    },
+  },
+  {
+    id: 41,
+    title: "ESP32 Mini Drone Flight Controller",
+    category: "Robotics",
+    duration: "150 min",
+    level: "Advanced",
+    description:
+      "Prototype a tiny ESP32-based quadcopter controller with an IMU, ESC outputs, arming logic, motor mixing, and a safe tethered test workflow.",
+    guide: {
+      components: [
+        "ESP32 development board or ESP32 flight-controller PCB",
+        "MPU6050/MPU6500 IMU module",
+        "4 micro brushless motors matched to frame size",
+        "4 ESCs or a 4-in-1 micro ESC board",
+        "2S LiPo battery with correct C rating",
+        "5V/3.3V regulator if the ESP32 board cannot be powered directly from ESC BEC",
+        "Mini quad frame, propellers, motor screws, and vibration-damping foam",
+        "RC receiver with PWM/SBUS/IBUS output or a separate ESP-NOW controller",
+        "Power switch, XT30/JST connector, heat shrink, zip ties, and prop guards",
+        "USB cable for programming and serial tuning",
+      ],
+      wiring: [
+        "LiPo positive/negative -> ESC power input; add correct connector polarity and never short the battery.",
+        "Regulated 5V or 3.3V -> ESP32 power input according to your board documentation.",
+        "ESP32 GND, ESC signal GND, receiver GND, and IMU GND must be common.",
+        "IMU SDA -> ESP32 GPIO 21 and SCL -> GPIO 22 for default I2C, with 3.3V power.",
+        "ESC signal inputs connect to four ESP32 PWM-capable GPIO pins such as 13, 12, 14, and 27.",
+        "Receiver throttle/roll/pitch/yaw signals connect to interrupt-capable GPIO pins or one serial input for SBUS/IBUS.",
+        "Mount the IMU flat, centered, and aligned with the drone forward direction; mark the arrow on the frame.",
+        "Perform first motor spin tests without propellers installed.",
+        "Install propellers only after arming logic, failsafe, and motor directions are verified.",
+      ],
+      steps: [
+        "Build the frame and mount motors so wires do not touch propellers or sharp carbon edges.",
+        "Flash the ESP32 with an IMU read test and confirm roll/pitch change correctly in Serial Monitor.",
+        "Calibrate gyro offsets while the drone is perfectly still on a level surface.",
+        "Wire ESC signal pins and test each motor individually with propellers removed.",
+        "Confirm motor order: front-left, front-right, rear-right, rear-left, then set correct spin directions.",
+        "Add receiver input and verify throttle, arm switch, roll, pitch, and yaw ranges before enabling motors.",
+        "Implement PID stabilization and start with very small P values; keep I and D low until stable.",
+        "Use a tethered test stand or hold-down jig for the first stabilization test; never hand-launch untested code.",
+        "Add failsafe: if receiver signal is lost or angle exceeds a safe limit, set all motors to zero.",
+        "Tune PID slowly outdoors in a legal, open area with eye protection and prop guards.",
+      ],
+      code: `// ESP32 mini drone control skeleton: IMU + motor mixer placeholder
+// This is a starting point, not a ready-to-fly autopilot.
+#include <Wire.h>
+#include <ESP32Servo.h>
+
+Servo motorFL, motorFR, motorRR, motorRL;
+const int pinFL = 13, pinFR = 12, pinRR = 14, pinRL = 27;
+float rollPid = 0, pitchPid = 0, yawPid = 0;
+int throttle = 1000; // microseconds, 1000 stopped, 2000 full
+bool armed = false;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(21, 22);
+  motorFL.attach(pinFL, 1000, 2000);
+  motorFR.attach(pinFR, 1000, 2000);
+  motorRR.attach(pinRR, 1000, 2000);
+  motorRL.attach(pinRL, 1000, 2000);
+  writeAll(1000);
+}
+
+void writeAll(int us) {
+  motorFL.writeMicroseconds(us);
+  motorFR.writeMicroseconds(us);
+  motorRR.writeMicroseconds(us);
+  motorRL.writeMicroseconds(us);
+}
+
+void loop() {
+  // TODO: read IMU angles, receiver channels, and compute PID outputs.
+  if (!armed) {
+    writeAll(1000);
+    return;
+  }
+
+  int fl = throttle + pitchPid + rollPid - yawPid;
+  int fr = throttle + pitchPid - rollPid + yawPid;
+  int rr = throttle - pitchPid - rollPid - yawPid;
+  int rl = throttle - pitchPid + rollPid + yawPid;
+
+  motorFL.writeMicroseconds(constrain(fl, 1000, 2000));
+  motorFR.writeMicroseconds(constrain(fr, 1000, 2000));
+  motorRR.writeMicroseconds(constrain(rr, 1000, 2000));
+  motorRL.writeMicroseconds(constrain(rl, 1000, 2000));
+}`,
+    },
+  },
+  {
+    id: 42,
+    title: "Build an RC Plane from Foam Board",
+    category: "Robotics",
+    duration: "140 min",
+    level: "Intermediate",
+    description:
+      "Create a simple foam-board RC plane with a brushless motor, ESC, receiver, servos, control surfaces, center-of-gravity checks, and a pre-flight checklist.",
+    guide: {
+      components: [
+        "Foam board or depron sheets",
+        "Carbon spar, wooden dowel, or lightweight reinforcement strip",
+        "Brushless outrunner motor sized for the airframe",
+        "ESC matched to motor current with 20-30% headroom",
+        "2S or 3S LiPo battery",
+        "2.4GHz transmitter and receiver",
+        "2-4 micro servos for elevator, ailerons, and rudder",
+        "Propeller matched to motor KV and battery voltage",
+        "Control horns, pushrods, hinges/tape, hot glue, and packing tape",
+        "Battery strap, Velcro, landing gear wire or skid, and CG marker",
+      ],
+      wiring: [
+        "LiPo -> ESC power input using the correct polarized connector.",
+        "ESC three motor wires -> motor; swap any two wires if rotation direction is wrong.",
+        "ESC signal plug -> receiver throttle channel; ESC BEC powers receiver if supported.",
+        "Elevator servo -> receiver elevator channel; aileron servo -> aileron channel; rudder servo -> rudder channel.",
+        "Servo signal wires usually face the receiver signal row; brown/black wires face ground row.",
+        "Secure the receiver away from the motor and route antennas away from carbon or battery wires.",
+        "Keep battery wiring short and strain-relieved so it cannot slide into the propeller arc.",
+        "Perform all radio setup with the propeller removed until throttle direction and failsafe are confirmed.",
+      ],
+      steps: [
+        "Choose a proven beginner wing shape and draw full-size templates for fuselage, wing, tail, and control surfaces.",
+        "Cut foam parts cleanly, bevel hinge lines, and reinforce the wing with a spar before final assembly.",
+        "Glue fuselage and wing square; measure left/right wing tips to keep alignment equal.",
+        "Install servos near control surfaces and make pushrods as straight as possible to reduce slop.",
+        "Mount motor with slight down/right thrust if your design recommends it, then secure ESC with airflow.",
+        "Connect receiver channels, center all trims, and set servo direction before attaching pushrods permanently.",
+        "Mark the center of gravity and move battery until the plane balances slightly nose-heavy.",
+        "Set low rates and 20-30% expo on transmitter for the first flight.",
+        "Do a range check, failsafe check, control direction check, and glide toss without power if safe for the model.",
+        "First powered flight should be in a wide open legal area with calm wind and an experienced spotter if possible.",
+      ],
+      code: `// Optional Arduino receiver + servo bench tester for RC plane setup
+#include <Servo.h>
+Servo testServo;
+const int receiverPin = 2;
+const int servoPin = 9;
+volatile unsigned long riseTime = 0;
+volatile int pulseWidth = 1500;
+
+void readPulse() {
+  if (digitalRead(receiverPin)) {
+    riseTime = micros();
+  } else {
+    pulseWidth = micros() - riseTime;
+  }
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(receiverPin, INPUT);
+  attachInterrupt(digitalPinToInterrupt(receiverPin), readPulse, CHANGE);
+  testServo.attach(servoPin);
+}
+
+void loop() {
+  int safePulse = constrain(pulseWidth, 1000, 2000);
+  testServo.writeMicroseconds(safePulse);
+  Serial.println(safePulse);
+  delay(50);
+}`,
+    },
+  },
+];
+
+const buildGuideSteps = [
+  "Pick one clear problem and write a one-sentence goal, target user, and success metric.",
+  "List the parts, tools, software accounts, budget, and safety requirements before buying anything.",
+  "Sketch the architecture: inputs, processing, outputs, power, data storage, and user interface.",
+  "Build the smallest working prototype first, then test each module separately with notes and photos.",
+  "Integrate modules gradually, record failures, and improve wiring, code structure, enclosure, and UX.",
+  "Publish a final guide with setup steps, screenshots, source files, credits, limitations, and maintenance tips.",
+];
+
+const projectIdeas = [
+  "AI camera that counts objects on a workbench",
+  "ESP32 environmental monitor with dashboard",
+  "Raspberry Pi media and backup server",
+  "ROS2 rover with obstacle avoidance",
+  "Portfolio website with tutorial articles",
+  "3D-printed smart enclosure for a sensor node",
+  "Safe DC bench power supply for electronics testing",
+  "ESP32 mini drone flight controller prototype",
+  "Foam-board RC plane with receiver and servo setup",
 ];
 
 const buildGuideSteps = [
@@ -776,6 +1032,10 @@ const guideBlueprints: Record<Tutorial["category"], GuideBlueprint> = {
 };
 
 function getProjectGuide(tutorial: Tutorial): ProjectGuide {
+  if (tutorial.guide) {
+    return tutorial.guide;
+  }
+
   const blueprint =
     guideBlueprints[tutorial.category] ?? guideBlueprints["Web Apps"];
   return {
