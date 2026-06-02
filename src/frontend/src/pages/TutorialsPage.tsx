@@ -499,10 +499,9 @@ type ProjectGuide = {
   code: string;
 };
 
-const guideBlueprints: Record<
-  Tutorial["category"],
-  { components: string[]; wiring: string[]; code: string }
-> = {
+type GuideBlueprint = { components: string[]; wiring: string[]; code: string };
+
+const guideBlueprints: Record<Tutorial["category"], GuideBlueprint> = {
   AI: {
     components: [
       "Computer with Python 3.11+",
@@ -777,7 +776,8 @@ const guideBlueprints: Record<
 };
 
 function getProjectGuide(tutorial: Tutorial): ProjectGuide {
-  const blueprint = guideBlueprints[tutorial.category];
+  const blueprint =
+    guideBlueprints[tutorial.category] ?? guideBlueprints["Web Apps"];
   return {
     components: blueprint.components,
     wiring: blueprint.wiring,
@@ -832,7 +832,9 @@ export default function TutorialsPage() {
 
   const openGuide = (tutorial: Tutorial) => {
     setSelectedTutorial(tutorial);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   if (selectedTutorial) {

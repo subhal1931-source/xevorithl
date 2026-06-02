@@ -48524,7 +48524,7 @@ const guideBlueprints = {
   }
 };
 function getProjectGuide(tutorial) {
-  const blueprint = guideBlueprints[tutorial.category];
+  const blueprint = guideBlueprints[tutorial.category] ?? guideBlueprints["Web Apps"];
   return {
     components: blueprint.components,
     wiring: blueprint.wiring,
@@ -48568,7 +48568,9 @@ function TutorialsPage() {
   };
   const openGuide = (tutorial) => {
     setSelectedTutorial(tutorial);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
   if (selectedTutorial) {
     const guide = getProjectGuide(selectedTutorial);
