@@ -180,7 +180,8 @@ export default function HomePage() {
               className="rounded-full px-8 font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,212,255,0.6)]"
               style={{
                 background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
-                boxShadow: "0 0 32px rgba(0,212,255,0.45), 0 0 64px rgba(0,212,255,0.18)",
+                boxShadow:
+                  "0 0 32px rgba(0,212,255,0.45), 0 0 64px rgba(0,212,255,0.18)",
                 border: "none",
               }}
             >
@@ -197,7 +198,8 @@ export default function HomePage() {
                 color: "#00d4ff",
                 backdropFilter: "blur(16px)",
                 WebkitBackdropFilter: "blur(16px)",
-                boxShadow: "0 0 20px rgba(0,212,255,0.15), inset 0 1px 0 rgba(255,255,255,0.08)",
+                boxShadow:
+                  "0 0 20px rgba(0,212,255,0.15), inset 0 1px 0 rgba(255,255,255,0.08)",
               }}
             >
               Learn More
