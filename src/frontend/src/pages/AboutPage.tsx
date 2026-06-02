@@ -49,6 +49,19 @@ const values = [
   },
 ];
 
+const focusAreas = [
+  "Original engineering tutorials for AI, robotics, electronics, single-board computers, web apps, games, and design systems.",
+  "Project planning guides that explain parts, tools, safety checks, architecture, testing, and documentation.",
+  "Practical build notes for students, hobbyists, startup builders, educators, and self-taught developers.",
+  "Clear policy pages, contact information, and transparent educational content standards for reader trust.",
+];
+
+const editorialStandards = [
+  "We write for humans first: every guide should explain what is being built, why it matters, what is required, and how to troubleshoot common problems.",
+  "We avoid misleading claims, copied content, unsafe shortcuts, and hidden advertising. Sponsored or affiliate content will be disclosed if added.",
+  "We encourage readers to verify datasheets, licenses, local rules, and safety requirements before using any tutorial in a real-world deployment.",
+];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -224,6 +237,47 @@ export default function AboutPage() {
             );
           })}
         </motion.div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="mt-14 grid gap-6 lg:grid-cols-2"
+          aria-label="About Xevorith details"
+        >
+          <div className="glass-card rounded-2xl border-t-2 border-t-[#4d9fff] p-6">
+            <h2 className="font-display mb-4 text-2xl font-bold text-foreground">
+              What We Publish
+            </h2>
+            <div className="space-y-3">
+              {focusAreas.map((item) => (
+                <p
+                  key={item}
+                  className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground"
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl border-t-2 border-t-[#00ffc8] p-6">
+            <h2 className="font-display mb-4 text-2xl font-bold text-foreground">
+              Editorial & Trust Standards
+            </h2>
+            <div className="space-y-3">
+              {editorialStandards.map((item) => (
+                <p
+                  key={item}
+                  className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground"
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </motion.section>
       </div>
     </div>
   );
