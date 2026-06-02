@@ -25,15 +25,7 @@ export function Footer() {
           ))}
         </div>
         <p className="text-xs text-muted-foreground/50 font-mono">
-          &copy; {new Date().getFullYear()} · Built with love using{" "}
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "xevorith")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent/70 hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_6px_oklch(var(--accent)/0.8)]"
-          >
-            caffeine.ai
-          </a>
+          &copy; {new Date().getFullYear()} · Grow up with us
         </p>
       </div>
     </footer>
