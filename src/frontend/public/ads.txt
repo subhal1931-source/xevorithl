@@ -1,0 +1,6 @@
+# Google AdSense ads.txt
+# Replace the publisher ID below with your actual Google AdSense publisher ID.
+# Your publisher ID looks like: pub-1234567890123456
+# You can find it in your AdSense account under Account > Account information.
+#
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

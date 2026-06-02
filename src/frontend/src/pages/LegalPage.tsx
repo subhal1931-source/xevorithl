@@ -36,9 +36,11 @@ const pageContent = {
       {
         heading: "Cookies, Analytics, and Advertising",
         body: [
-          "Xevorith may use essential cookies for site functionality and may use privacy-conscious analytics to measure aggregate traffic and content performance.",
-          "If advertising services such as Google AdSense are enabled, advertising partners may use cookies or similar technologies to show, measure, and improve ads. These partners may process data according to their own policies and user controls.",
-          "You can usually control cookies through your browser settings. Blocking some cookies may affect certain website features.",
+          "Xevorith uses essential cookies for site functionality and may use analytics to measure aggregate traffic and content performance.",
+          "This website uses Google AdSense, a third-party advertising service operated by Google LLC. Google AdSense uses cookies — including the DoubleClick cookie — to serve ads based on your prior visits to this website or other websites. These cookies allow Google and its partners to show you ads based on your interests.",
+          "Google's use of advertising cookies enables it and its partners to serve ads based on your visit to Xevorith and/or other sites on the Internet. You may opt out of personalised advertising by visiting Google's Ad Settings at https://adssettings.google.com or by visiting the Network Advertising Initiative opt-out page at https://optout.networkadvertising.org.",
+          "You can also opt out of personalised advertising for all participating companies via the Digital Advertising Alliance at https://optout.aboutads.info.",
+          "You can control and delete cookies through your browser settings. Blocking advertising cookies will not remove advertising from the site — ads will simply be less relevant to you. Blocking essential cookies may affect site functionality.",
         ],
       },
       {

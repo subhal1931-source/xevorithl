@@ -1,3 +1,4 @@
+import { CookieConsent } from "./CookieConsent";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 
@@ -66,6 +67,7 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Top Navbar */}
       <Navbar />
+      <CookieConsent />
 
       {/* Main content — padded below navbar */}
       <div className="relative z-10 flex flex-1 flex-col pt-16">
