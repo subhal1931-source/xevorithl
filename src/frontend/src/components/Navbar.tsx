@@ -5,6 +5,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -144,6 +145,7 @@ export function Navbar() {
                 borderLeft: "1px solid rgba(0,212,255,0.15)",
               }}
             >
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex h-full flex-col">
                 <div
                   className="flex items-center justify-between border-b px-5 py-4"

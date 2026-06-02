@@ -5,6 +5,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -90,6 +91,7 @@ export function Sidebar() {
             side="left"
             className="w-[280px] border-r border-accent/20 bg-background/90 p-0 glass-blur-48"
           >
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <div className="flex h-full flex-col">
               <div className="flex items-center gap-3 border-b border-accent/15 px-5 py-4">
                 <Cpu className="size-6 text-accent" />

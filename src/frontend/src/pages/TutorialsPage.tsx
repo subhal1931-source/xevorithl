@@ -1513,7 +1513,7 @@ export default function TutorialsPage() {
             initial="hidden"
             animate="visible"
             exit={{ opacity: 0 }}
-            className="grid gap-5 md:grid-cols-2"
+            className="grid gap-6"
           >
             {filtered.map((tutorial, index) => {
               const colors =
@@ -1523,74 +1523,83 @@ export default function TutorialsPage() {
                   key={tutorial.id}
                   variants={itemVariants}
                   data-ocid={`tutorials.item.${index + 1}`}
-                  className="glass-card group relative overflow-hidden rounded-2xl border border-white/10 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(0,212,255,0.14)]"
-                  style={{ borderTop: `2px solid ${colors.accent}` }}
+                  className="glass-card group relative overflow-hidden rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(0,212,255,0.18)]"
+                  style={{ borderTop: `3px solid ${colors.accent}` }}
                 >
-                  <div className="flex h-full flex-col gap-4 md:flex-row">
-                    <div
-                      className="flex min-h-28 w-full shrink-0 items-center justify-center rounded-2xl md:w-36"
+                  <div className="mb-4 flex flex-wrap items-center gap-3">
+                    <span
+                      className="rounded-full px-3 py-1 text-sm font-semibold"
                       style={{
+                        background: `${colors.accent}18`,
+                        color: colors.accent,
+                        border: `1px solid ${colors.accent}40`,
+                      }}
+                    >
+                      {tutorial.category}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Clock className="size-4" />
+                      {tutorial.duration}
+                    </span>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-sm text-muted-foreground">
+                      {tutorial.level}
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-5">
+                    <div
+                      className="hidden shrink-0 items-center justify-center rounded-2xl sm:flex"
+                      style={{
+                        width: 64,
+                        height: 64,
                         background: `linear-gradient(135deg, ${colors.accent}22, rgba(255,255,255,0.04))`,
-                        border: `1px solid ${colors.accent}26`,
+                        border: `1px solid ${colors.accent}30`,
                       }}
                     >
                       <BookOpen
-                        className="size-9"
+                        className="size-7"
                         style={{ color: colors.accent }}
                       />
                     </div>
+
                     <div className="flex flex-1 flex-col">
-                      <div className="mb-2 flex flex-wrap items-center gap-2">
-                        <span
-                          className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
-                          style={{
-                            background: `${colors.accent}18`,
-                            color: colors.accent,
-                            border: `1px solid ${colors.accent}40`,
-                          }}
-                        >
-                          {tutorial.category}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="size-3" />
-                          {tutorial.duration}
-                        </span>
-                        <span className="rounded-full border border-white/10 px-2 py-0.5 text-xs text-muted-foreground">
-                          {tutorial.level}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-lg font-bold leading-snug text-foreground">
+                      <h3 className="font-display text-2xl font-bold leading-snug text-foreground md:text-3xl">
                         {tutorial.title}
                       </h3>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
                         {tutorial.description}
                       </p>
-                      <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold">
-                        <button
-                          type="button"
-                          onClick={() => openGuide(tutorial)}
-                          className="text-left transition hover:text-white"
-                          style={{ color: colors.accent }}
-                        >
-                          Read guide
-                        </button>
-                        <a
-                          href={buildMailtoLink({
-                            name: "",
-                            email: "",
-                            topic: tutorial.title,
-                            message: `Hi Xevorith, please send more details about: ${tutorial.title}`,
-                          })}
-                          className="inline-flex items-center gap-1 text-[#00d4ff] transition hover:text-white"
-                        >
-                          Ask by email
-                          <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-                        </a>
-                      </div>
                     </div>
                   </div>
+
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={() => openGuide(tutorial)}
+                      className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-black transition hover:scale-[1.03]"
+                      style={{
+                        background: colors.accent,
+                        boxShadow: `0 0 20px ${colors.accent}50`,
+                      }}
+                    >
+                      <BookOpen className="size-4" /> Open Full Guide
+                    </button>
+                    <a
+                      href={buildMailtoLink({
+                        name: "",
+                        email: "",
+                        topic: tutorial.title,
+                        message: `Hi Xevorith, please send more details about: ${tutorial.title}`,
+                      })}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#00d4ff] transition hover:text-white"
+                    >
+                      Ask by email
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
+
                   <div
-                    className="pointer-events-none absolute -right-4 -bottom-4 h-20 w-20 rounded-full opacity-15 blur-xl"
+                    className="pointer-events-none absolute -right-6 -bottom-6 h-32 w-32 rounded-full opacity-15 blur-2xl"
                     style={{ background: colors.accent }}
                   />
                 </motion.article>

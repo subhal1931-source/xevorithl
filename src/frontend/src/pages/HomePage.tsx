@@ -4,9 +4,7 @@ import {
   Cpu,
   Gamepad2,
   Globe,
-  MessageCircle,
   Palette,
-  Youtube,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -58,23 +56,6 @@ const services = [
     iconBg: "rgba(0,255,200,0.1)",
     iconColor: "#00ffc8",
     cornerGlow: "rgba(0,255,200,1)",
-  },
-];
-
-const socialLinks = [
-  {
-    label: "YouTube",
-    icon: Youtube,
-    href: "https://youtube.com",
-    hoverClass:
-      "hover:text-red-400 hover:border-red-400/50 hover:shadow-[0_0_28px_rgba(248,113,113,0.4)]",
-  },
-  {
-    label: "Discord",
-    icon: MessageCircle,
-    href: "https://discord.com",
-    hoverClass:
-      "hover:text-indigo-400 hover:border-indigo-400/50 hover:shadow-[0_0_28px_rgba(129,140,248,0.4)]",
   },
 ];
 
@@ -288,53 +269,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Links */}
-      <section className="px-6 py-16 md:py-24">
-        <div className="mx-auto max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-10 text-center"
-          >
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Join the Community
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Follow our journey and connect with fellow makers
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-wrap justify-center gap-5"
-          >
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-ocid={`home.social.${social.label.toLowerCase()}_button`}
-                  className={cn(
-                    "glow-border group flex items-center gap-3 rounded-xl px-8 py-4 text-base font-semibold text-foreground transition-all duration-300",
-                    social.hoverClass,
-                  )}
-                >
-                  <Icon className="size-5 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_currentColor]" />
-                  <span>{social.label}</span>
-                </a>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
