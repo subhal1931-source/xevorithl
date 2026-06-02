@@ -1,11 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -13,6 +5,37 @@ import { useState } from "react";
 
 const categories = ["All", "AI", "Robotics", "Electronics", "SBC"] as const;
 type Category = (typeof categories)[number];
+
+const categoryColors: Record<
+  string,
+  { accent: string; border: string; glow: string }
+> = {
+  AI: {
+    accent: "#00d4ff",
+    border: "border-t-[#00d4ff]",
+    glow: "hover:shadow-[0_0_50px_rgba(0,212,255,0.3)]",
+  },
+  Robotics: {
+    accent: "#4d9fff",
+    border: "border-t-[#4d9fff]",
+    glow: "hover:shadow-[0_0_50px_rgba(77,159,255,0.3)]",
+  },
+  Electronics: {
+    accent: "#a855f7",
+    border: "border-t-[#a855f7]",
+    glow: "hover:shadow-[0_0_50px_rgba(168,85,247,0.3)]",
+  },
+  SBC: {
+    accent: "#00ffc8",
+    border: "border-t-[#00ffc8]",
+    glow: "hover:shadow-[0_0_50px_rgba(0,255,200,0.3)]",
+  },
+  All: {
+    accent: "#00d4ff",
+    border: "border-t-[#00d4ff]",
+    glow: "hover:shadow-[0_0_50px_rgba(0,212,255,0.3)]",
+  },
+};
 
 const tutorials = [
   {
@@ -83,12 +106,8 @@ const tutorials = [
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
-
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -107,20 +126,52 @@ export default function TutorialsPage() {
       : tutorials.filter((t) => t.category === activeCategory);
 
   return (
-    <div className="px-6 py-12 md:py-16">
+    <div className="relative overflow-hidden px-6 py-12 md:py-16">
+      {/* Ambient orbs */}
+      <div
+        className="pointer-events-none absolute -top-20 right-1/4 h-[300px] w-[300px] rounded-full opacity-10 blur-[100px]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(0,212,255,0.5) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute bottom-1/4 left-0 h-[250px] w-[250px] -translate-x-1/3 rounded-full opacity-10 blur-[100px]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(168,85,247,0.5) 0%, transparent 70%)",
+        }}
+      />
+
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-10 text-center"
+          className="mb-12 text-center"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent">
+          <div
+            className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+            style={{
+              background: "rgba(0,212,255,0.07)",
+              border: "1px solid rgba(0,212,255,0.3)",
+              color: "#00d4ff",
+              backdropFilter: "blur(12px)",
+            }}
+          >
             <BookOpen className="size-3.5" />
             <span>Learning Center</span>
           </div>
-          <h1 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+          <h1
+            className="neon-glow font-display text-4xl font-extrabold tracking-tight md:text-5xl"
+            style={{
+              background: "linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Tutorials & Projects
           </h1>
           <p className="mt-3 text-muted-foreground">
@@ -134,25 +185,36 @@ export default function TutorialsPage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
+          className="mb-10 flex flex-wrap justify-center gap-3"
         >
-          {categories.map((cat) => (
-            <Button
-              key={cat}
-              variant={activeCategory === cat ? "default" : "outline"}
-              size="sm"
-              data-ocid={`tutorials.filter.${cat.toLowerCase()}_button`}
-              onClick={() => setActiveCategory(cat)}
-              className={cn(
-                "rounded-full border-border/30 transition-all duration-200",
-                activeCategory === cat
-                  ? "bg-accent text-accent-foreground shadow-[0_0_16px_oklch(var(--accent)/0.3)] hover:bg-accent/90"
-                  : "bg-transparent text-muted-foreground hover:border-accent/30 hover:text-foreground",
-              )}
-            >
-              {cat}
-            </Button>
-          ))}
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            const color = categoryColors[cat]?.accent ?? "#00d4ff";
+            return (
+              <button
+                key={cat}
+                type="button"
+                data-ocid={`tutorials.filter.${cat.toLowerCase()}_button`}
+                onClick={() => setActiveCategory(cat)}
+                className={cn(
+                  "rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300",
+                  isActive
+                    ? "text-black"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+                style={{
+                  background: isActive ? color : "rgba(255,255,255,0.04)",
+                  border: isActive
+                    ? `1px solid ${color}`
+                    : "1px solid rgba(255,255,255,0.12)",
+                  boxShadow: isActive ? `0 0 20px ${color}60` : "none",
+                  backdropFilter: "blur(12px)",
+                }}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </motion.div>
 
         {/* Tutorial Grid */}
@@ -163,45 +225,69 @@ export default function TutorialsPage() {
             initial="hidden"
             animate="visible"
             exit={{ opacity: 0 }}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {filtered.map((tutorial, index) => (
-              <motion.div key={tutorial.id} variants={itemVariants}>
-                <Card
+            {filtered.map((tutorial, index) => {
+              const colors =
+                categoryColors[tutorial.category] ?? categoryColors.AI;
+              return (
+                <motion.div
+                  key={tutorial.id}
+                  variants={itemVariants}
                   data-ocid={`tutorials.item.${index + 1}`}
-                  className="glass-effect group h-full cursor-pointer border-border/30 transition-all duration-300 hover:border-accent/30 hover:shadow-[0_0_24px_oklch(var(--accent)/0.08)]"
+                  className={cn(
+                    "glass-card group relative cursor-pointer overflow-hidden rounded-2xl border-t-2 p-5 transition-all duration-300",
+                    colors.border,
+                    colors.glow,
+                  )}
                 >
-                  <CardHeader className="pb-3">
-                    <div className="mb-2 flex items-center gap-2">
-                      <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-                        {tutorial.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="size-3" />
-                        {tutorial.duration}
-                      </span>
-                    </div>
-                    <CardTitle className="font-display text-lg leading-snug">
-                      {tutorial.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-1 flex-col justify-between">
-                    <CardDescription className="text-sm leading-relaxed">
-                      {tutorial.description}
-                    </CardDescription>
-                    <div className="mt-4 flex items-center gap-1 text-xs font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                      <span>Read more</span>
-                      <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                    style={{
+                      background: `linear-gradient(90deg, transparent, ${colors.accent}80, transparent)`,
+                    }}
+                  />
+                  <div className="mb-3 flex items-center gap-2">
+                    <span
+                      className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                      style={{
+                        background: `${colors.accent}18`,
+                        color: colors.accent,
+                        border: `1px solid ${colors.accent}40`,
+                      }}
+                    >
+                      {tutorial.category}
+                    </span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Clock className="size-3" />
+                      {tutorial.duration}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-base font-bold leading-snug text-foreground">
+                    {tutorial.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {tutorial.description}
+                  </p>
+                  <div
+                    className="mt-4 flex items-center gap-1 text-xs font-semibold opacity-0 transition-opacity group-hover:opacity-100"
+                    style={{ color: colors.accent }}
+                  >
+                    <span>Read more</span>
+                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                  <div
+                    className="pointer-events-none absolute -right-4 -bottom-4 h-20 w-20 rounded-full opacity-15 blur-xl"
+                    style={{ background: colors.accent }}
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </AnimatePresence>
 
         {filtered.length === 0 && (
-          <div className="py-20 text-center">
+          <div data-ocid="tutorials.empty_state" className="py-20 text-center">
             <BookOpen className="mx-auto mb-4 size-12 text-muted-foreground/40" />
             <p className="text-muted-foreground">
               No tutorials found in this category yet.

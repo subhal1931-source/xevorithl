@@ -35,20 +35,34 @@ export function Sidebar() {
             to={item.path}
             data-ocid={`sidebar.nav.${item.label.toLowerCase()}_link`}
             className={cn(
-              "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
-              "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+              "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-300",
               isActive
-                ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-[0_0_12px_oklch(var(--accent)/0.25)]"
-                : "text-sidebar-foreground/80",
+                ? [
+                    "text-accent",
+                    "border-l-2 border-accent pl-[10px]",
+                    "bg-accent/10",
+                    "shadow-[0_0_20px_oklch(var(--accent)/0.25),inset_0_1px_0_rgba(255,255,255,0.06)]",
+                  ]
+                : [
+                    "text-sidebar-foreground/70 border-l-2 border-transparent pl-[10px]",
+                    "hover:text-accent hover:bg-accent/8",
+                    "hover:border-accent/50",
+                    "hover:shadow-[0_0_15px_oklch(var(--accent)/0.15)]",
+                  ],
             )}
             onClick={() => setMobileOpen(false)}
           >
             <Icon
-              className={cn("size-4 shrink-0", isActive && "text-accent")}
+              className={cn(
+                "size-4 shrink-0 transition-all duration-300",
+                isActive
+                  ? "text-accent drop-shadow-[0_0_8px_oklch(var(--accent)/0.8)]"
+                  : "text-sidebar-foreground/50 group-hover:text-accent",
+              )}
             />
-            <span>{item.label}</span>
+            <span className={cn(isActive && "neon-text")}>{item.label}</span>
             {isActive && (
-              <span className="ml-auto size-1.5 rounded-full bg-accent shadow-[0_0_6px_oklch(var(--accent)/0.8)]" />
+              <span className="ml-auto size-1.5 rounded-full bg-accent animate-pulse-glow shadow-[0_0_8px_oklch(var(--accent)/1)]" />
             )}
           </Link>
         );
@@ -74,10 +88,10 @@ export function Sidebar() {
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-[280px] border-r border-border/40 bg-background/95 p-0 backdrop-blur-xl"
+            className="w-[280px] border-r border-accent/20 bg-background/90 p-0 glass-blur-48"
           >
             <div className="flex h-full flex-col">
-              <div className="flex items-center gap-3 border-b border-border/30 px-5 py-4">
+              <div className="flex items-center gap-3 border-b border-accent/15 px-5 py-4">
                 <Cpu className="size-6 text-accent" />
                 <span className="font-display text-lg font-bold tracking-tight text-foreground">
                   Xevorith
@@ -100,16 +114,24 @@ export function Sidebar() {
       </div>
 
       {/* Desktop sidebar */}
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-64 flex-col border-r border-border/30 bg-sidebar/80 backdrop-blur-xl md:flex">
-        <div className="flex items-center gap-3 border-b border-border/30 px-5 py-5">
-          <Cpu className="size-7 text-accent" />
-          <span className="font-display text-xl font-bold tracking-tight text-sidebar-foreground">
-            Xevorith
-          </span>
+      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-64 flex-col glass-effect border-r border-accent/20 shadow-[2px_0_30px_rgba(0,200,255,0.08)] md:flex">
+        <div className="flex items-center gap-3 border-b border-accent/15 px-5 py-5">
+          <div className="relative">
+            <Cpu className="size-7 text-accent drop-shadow-[0_0_10px_oklch(var(--accent)/0.9)]" />
+            <div className="absolute inset-0 rounded-full bg-accent/20 blur-md" />
+          </div>
+          <div>
+            <span className="font-display text-xl font-bold tracking-tight text-sidebar-foreground neon-text">
+              Xevorith
+            </span>
+            <p className="text-[10px] text-accent/60 tracking-widest uppercase font-mono">
+              Engineering Lab
+            </p>
+          </div>
         </div>
         <div className="flex-1 overflow-auto py-2">{NavContent}</div>
-        <div className="border-t border-border/30 px-5 py-4">
-          <p className="text-xs text-muted-foreground">
+        <div className="border-t border-accent/15 px-5 py-4">
+          <p className="text-xs text-muted-foreground/60 font-mono">
             &copy; {new Date().getFullYear()} Xevorith
           </p>
         </div>
