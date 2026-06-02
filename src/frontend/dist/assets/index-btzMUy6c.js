@@ -15868,7 +15868,7 @@ const iiAttributesIDL = ({ IDL: I }) => I.Service({
 const II_MAINNET_CANISTER_ID = "rdmx6-jaaaa-aaaaa-aaadq-cai";
 const II_SIGNER_CANISTER_ID = define_process_env_default.II_CANISTER_ID ?? II_MAINNET_CANISTER_ID;
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://id.ai/authorize";
 const DEFAULT_ATTRIBUTE_KEYS = ["verified_email"];
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
@@ -32791,18 +32791,7 @@ function Footer() {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground/50 font-mono", children: [
       "© ",
       (/* @__PURE__ */ new Date()).getFullYear(),
-      " · Built with love using",
-      " ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "a",
-        {
-          href: `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "xevorith")}`,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "text-accent/70 hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_6px_oklch(var(--accent)/0.8)]",
-          children: "caffeine.ai"
-        }
-      )
+      " · Grow up with us"
     ] })
   ] }) });
 }
@@ -37542,18 +37531,18 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [
+const __iconNode$q = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$l);
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$q);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [
+const __iconNode$p = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -37563,25 +37552,36 @@ const __iconNode$k = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$k);
+const BookOpen = createLucideIcon("book-open", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [
+const __iconNode$o = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$o);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$n = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const Clock = createLucideIcon("clock", __iconNode$j);
+const Clock = createLucideIcon("clock", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [
+const __iconNode$m = [
   ["path", { d: "M12 20v2", key: "1lh1kg" }],
   ["path", { d: "M12 2v2", key: "tus03m" }],
   ["path", { d: "M17 20v2", key: "1rnc9c" }],
@@ -37597,14 +37597,28 @@ const __iconNode$i = [
   ["rect", { x: "4", y: "4", width: "16", height: "16", rx: "2", key: "1vbyd7" }],
   ["rect", { x: "8", y: "8", width: "8", height: "8", rx: "1", key: "z9xiuo" }]
 ];
-const Cpu = createLucideIcon("cpu", __iconNode$i);
+const Cpu = createLucideIcon("cpu", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [
+const __iconNode$l = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
+];
+const FileText = createLucideIcon("file-text", __iconNode$l);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$k = [
   ["line", { x1: "6", x2: "10", y1: "11", y2: "11", key: "1gktln" }],
   ["line", { x1: "8", x2: "8", y1: "9", y2: "13", key: "qnk9ow" }],
   ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12", key: "krot7o" }],
@@ -37617,26 +37631,26 @@ const __iconNode$h = [
     }
   ]
 ];
-const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$h);
+const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$k);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [
+const __iconNode$j = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
   ["path", { d: "M2 12h20", key: "9i4pu4" }]
 ];
-const Globe = createLucideIcon("globe", __iconNode$g);
+const Globe = createLucideIcon("globe", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$f = [
+const __iconNode$i = [
   ["path", { d: "M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8", key: "5wwlr5" }],
   [
     "path",
@@ -37646,26 +37660,56 @@ const __iconNode$f = [
     }
   ]
 ];
-const House = createLucideIcon("house", __iconNode$f);
+const House = createLucideIcon("house", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$e = [
+const __iconNode$h = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 16v-4", key: "1dtifu" }],
   ["path", { d: "M12 8h.01", key: "e9boi3" }]
 ];
-const Info = createLucideIcon("info", __iconNode$e);
+const Info = createLucideIcon("info", __iconNode$h);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$d = [
+const __iconNode$g = [
+  [
+    "path",
+    {
+      d: "M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z",
+      key: "zw3jo"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12",
+      key: "1wduqc"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17",
+      key: "kqbvx6"
+    }
+  ]
+];
+const Layers = createLucideIcon("layers", __iconNode$g);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$f = [
   [
     "path",
     {
@@ -37676,25 +37720,25 @@ const __iconNode$d = [
   ["path", { d: "M9 18h6", key: "x1upvd" }],
   ["path", { d: "M10 22h4", key: "ceow96" }]
 ];
-const Lightbulb = createLucideIcon("lightbulb", __iconNode$d);
+const Lightbulb = createLucideIcon("lightbulb", __iconNode$f);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$c = [
+const __iconNode$e = [
   ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
   ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
 ];
-const Mail = createLucideIcon("mail", __iconNode$c);
+const Mail = createLucideIcon("mail", __iconNode$e);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$d = [
   [
     "path",
     {
@@ -37704,7 +37748,29 @@ const __iconNode$b = [
   ],
   ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }]
 ];
-const MapPin = createLucideIcon("map-pin", __iconNode$b);
+const MapPin = createLucideIcon("map-pin", __iconNode$d);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$c = [
+  ["path", { d: "M4 12h16", key: "1lakjw" }],
+  ["path", { d: "M4 18h16", key: "19g7jn" }],
+  ["path", { d: "M4 6h16", key: "1o0s65" }]
+];
+const Menu = createLucideIcon("menu", __iconNode$c);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$b = [
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+];
+const MessageCircle = createLucideIcon("message-circle", __iconNode$b);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -37712,11 +37778,9 @@ const MapPin = createLucideIcon("map-pin", __iconNode$b);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$a = [
-  ["path", { d: "M4 12h16", key: "1lakjw" }],
-  ["path", { d: "M4 18h16", key: "19g7jn" }],
-  ["path", { d: "M4 6h16", key: "1o0s65" }]
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ];
-const Menu = createLucideIcon("menu", __iconNode$a);
+const MessageSquare = createLucideIcon("message-square", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -37724,26 +37788,6 @@ const Menu = createLucideIcon("menu", __iconNode$a);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$9 = [
-  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
-];
-const MessageCircle = createLucideIcon("message-circle", __iconNode$9);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$8 = [
-  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
-];
-const MessageSquare = createLucideIcon("message-square", __iconNode$8);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$7 = [
   [
     "path",
     {
@@ -37756,14 +37800,14 @@ const __iconNode$7 = [
   ["circle", { cx: "6.5", cy: "12.5", r: ".5", fill: "currentColor", key: "qy21gx" }],
   ["circle", { cx: "8.5", cy: "7.5", r: ".5", fill: "currentColor", key: "fotxhn" }]
 ];
-const Palette = createLucideIcon("palette", __iconNode$7);
+const Palette = createLucideIcon("palette", __iconNode$9);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$6 = [
+const __iconNode$8 = [
   [
     "path",
     {
@@ -37781,7 +37825,35 @@ const __iconNode$6 = [
   ["path", { d: "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0", key: "1f8sc4" }],
   ["path", { d: "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5", key: "qeys4" }]
 ];
-const Rocket = createLucideIcon("rocket", __iconNode$6);
+const Rocket = createLucideIcon("rocket", __iconNode$8);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$7 = [
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+];
+const Search = createLucideIcon("search", __iconNode$7);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$6 = [
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+];
+const Send = createLucideIcon("send", __iconNode$6);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -37792,13 +37864,13 @@ const __iconNode$5 = [
   [
     "path",
     {
-      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
-      key: "1ffxy3"
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
     }
   ],
-  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const Send = createLucideIcon("send", __iconNode$5);
+const ShieldCheck = createLucideIcon("shield-check", __iconNode$5);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -37940,172 +38012,287 @@ const navItems = [
   { label: "About", path: "/about", icon: Info },
   { label: "Contact", path: "/contact", icon: Mail }
 ];
-function Sidebar() {
+function Navbar() {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
   const [mobileOpen, setMobileOpen] = reactExports.useState(false);
-  const NavContent = /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "flex flex-col gap-1 px-3 py-4", children: navItems.map((item) => {
-    const isActive = currentPath === item.path;
-    const Icon2 = item.icon;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      Link,
-      {
-        to: item.path,
-        "data-ocid": `sidebar.nav.${item.label.toLowerCase()}_link`,
-        className: cn(
-          "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-300",
-          isActive ? [
-            "text-accent",
-            "border-l-2 border-accent pl-[10px]",
-            "bg-accent/10",
-            "shadow-[0_0_20px_oklch(var(--accent)/0.25),inset_0_1px_0_rgba(255,255,255,0.06)]"
-          ] : [
-            "text-sidebar-foreground/70 border-l-2 border-transparent pl-[10px]",
-            "hover:text-accent hover:bg-accent/8",
-            "hover:border-accent/50",
-            "hover:shadow-[0_0_15px_oklch(var(--accent)/0.15)]"
-          ]
-        ),
-        onClick: () => setMobileOpen(false),
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Icon2,
-            {
-              className: cn(
-                "size-4 shrink-0 transition-all duration-300",
-                isActive ? "text-accent drop-shadow-[0_0_8px_oklch(var(--accent)/0.8)]" : "text-sidebar-foreground/50 group-hover:text-accent"
-              )
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn(isActive && "neon-text"), children: item.label }),
-          isActive && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-auto size-1.5 rounded-full bg-accent animate-pulse-glow shadow-[0_0_8px_oklch(var(--accent)/1)]" })
-        ]
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "header",
+    {
+      className: "fixed top-0 left-0 right-0 z-50",
+      style: {
+        background: "rgba(0,0,0,0.55)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        borderBottom: "1px solid rgba(0,212,255,0.12)",
+        boxShadow: "0 4px 30px rgba(0,0,0,0.4), 0 1px 0 rgba(0,212,255,0.08)"
       },
-      item.path
-    );
-  }) });
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed top-4 left-4 z-50 md:hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { open: mobileOpen, onOpenChange: setMobileOpen, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(SheetTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        Button,
-        {
-          variant: "ghost",
-          size: "icon",
-          className: "glass-effect size-10 text-foreground hover:bg-accent/20",
-          "data-ocid": "sidebar.mobile_menu_button",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { className: "size-5" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Open menu" })
-          ]
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        SheetContent,
-        {
-          side: "left",
-          className: "w-[280px] border-r border-accent/20 bg-background/90 p-0 glass-blur-48",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 border-b border-accent/15 px-5 py-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Cpu, { className: "size-6 text-accent" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-lg font-bold tracking-tight text-foreground", children: "Xevorith" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(SheetClose, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                Button,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto flex h-16 max-w-7xl items-center justify-between px-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link,
+          {
+            to: "/",
+            className: "flex items-center gap-3 group",
+            onClick: () => setMobileOpen(false),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Cpu,
                 {
-                  variant: "ghost",
-                  size: "icon",
-                  className: "ml-auto size-8 text-muted-foreground hover:text-foreground",
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-4" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Close menu" })
-                  ]
+                  className: "size-7 text-[#00d4ff] transition-all duration-300 group-hover:drop-shadow-[0_0_14px_rgba(0,212,255,0.9)]",
+                  style: { filter: "drop-shadow(0 0 8px rgba(0,212,255,0.7))" }
                 }
-              ) })
-            ] }),
-            NavContent
-          ] })
-        }
-      )
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "fixed left-0 top-0 z-40 hidden h-screen w-64 flex-col glass-effect border-r border-accent/20 shadow-[2px_0_30px_rgba(0,200,255,0.08)] md:flex", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 border-b border-accent/15 px-5 py-5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Cpu, { className: "size-7 text-accent drop-shadow-[0_0_10px_oklch(var(--accent)/0.9)]" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 rounded-full bg-accent/20 blur-md" })
+              ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col leading-none", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "span",
+                  {
+                    className: "font-display text-lg font-bold tracking-tight text-white",
+                    style: {
+                      textShadow: "0 0 20px rgba(0,212,255,0.6), 0 0 40px rgba(0,212,255,0.3)"
+                    },
+                    children: "Xevorith"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[9px] font-mono uppercase tracking-[0.2em] text-[#00d4ff]/60", children: "Engineering Lab" })
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "hidden md:flex items-center gap-1", children: [
+          navItems.map((item) => {
+            const isActive = currentPath === item.path;
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Link,
+              {
+                to: item.path,
+                className: cn(
+                  "relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  isActive ? "text-[#00d4ff]" : "text-white/60 hover:text-white"
+                ),
+                style: isActive ? {
+                  background: "rgba(0,212,255,0.1)",
+                  border: "1px solid rgba(0,212,255,0.3)",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0 0 18px rgba(0,212,255,0.2), inset 0 1px 0 rgba(255,255,255,0.06)",
+                  textShadow: "0 0 12px rgba(0,212,255,0.8)"
+                } : {
+                  background: "transparent",
+                  border: "1px solid transparent"
+                },
+                children: [
+                  item.label,
+                  isActive && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -bottom-px left-1/2 h-px w-3/4 -translate-x-1/2 rounded-full bg-[#00d4ff]/60" })
+                ]
+              },
+              item.path
+            );
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", className: "ml-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "rounded-full px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:scale-105",
+              style: {
+                background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
+                boxShadow: "0 0 24px rgba(0,212,255,0.4), 0 0 48px rgba(0,212,255,0.15)"
+              },
+              children: "Get in Touch"
+            }
+          ) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-xl font-bold tracking-tight text-sidebar-foreground neon-text", children: "Xevorith" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-accent/60 tracking-widest uppercase font-mono", children: "Engineering Lab" })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-auto py-2", children: NavContent }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-accent/15 px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground/60 font-mono", children: [
-        "© ",
-        (/* @__PURE__ */ new Date()).getFullYear(),
-        " Xevorith"
-      ] }) })
-    ] })
-  ] });
-}
-function Layout({ children }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex min-h-screen bg-background overflow-hidden", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "div",
-      {
-        "aria-hidden": "true",
-        className: "pointer-events-none fixed inset-0 z-0 overflow-hidden",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { open: mobileOpen, onOpenChange: setMobileOpen, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SheetTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
             {
-              className: "absolute -left-40 -top-40 h-[600px] w-[600px] animate-orb-drift rounded-full opacity-[0.18]",
+              variant: "ghost",
+              size: "icon",
+              className: "size-10 text-white hover:bg-white/10 rounded-full",
               style: {
-                background: "radial-gradient(circle, oklch(0.75 0.22 200) 0%, oklch(0.70 0.25 250) 40%, transparent 70%)",
-                filter: "blur(80px)"
-              }
+                background: "rgba(0,212,255,0.08)",
+                border: "1px solid rgba(0,212,255,0.2)"
+              },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { className: "size-5" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Open menu" })
+              ]
             }
-          ),
+          ) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
+            SheetContent,
             {
-              className: "absolute -bottom-60 -right-40 h-[700px] w-[700px] rounded-full opacity-[0.15]",
+              side: "right",
+              className: "w-[280px] p-0",
               style: {
-                background: "radial-gradient(circle, oklch(0.70 0.25 250) 0%, oklch(0.65 0.25 300) 45%, transparent 70%)",
-                filter: "blur(100px)",
-                animation: "orb-drift 16s ease-in-out infinite reverse"
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
-            {
-              className: "absolute left-1/2 top-1/3 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.08]",
-              style: {
-                background: "radial-gradient(circle, oklch(0.75 0.22 200) 0%, transparent 70%)",
-                filter: "blur(60px)",
-                animation: "orb-drift 20s ease-in-out infinite"
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
-            {
-              className: "absolute -right-20 top-20 h-[350px] w-[350px] rounded-full opacity-[0.12]",
-              style: {
-                background: "radial-gradient(circle, oklch(0.65 0.25 300) 0%, transparent 70%)",
-                filter: "blur(70px)",
-                animation: "orb-drift 14s ease-in-out infinite reverse"
-              }
+                background: "rgba(0,0,0,0.92)",
+                backdropFilter: "blur(40px)",
+                borderLeft: "1px solid rgba(0,212,255,0.15)"
+              },
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "div",
+                  {
+                    className: "flex items-center justify-between border-b px-5 py-4",
+                    style: { borderColor: "rgba(0,212,255,0.12)" },
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Cpu,
+                          {
+                            className: "size-5 text-[#00d4ff]",
+                            style: {
+                              filter: "drop-shadow(0 0 6px rgba(0,212,255,0.7))"
+                            }
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-base font-bold text-white", children: "Xevorith" })
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(SheetClose, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Button,
+                        {
+                          variant: "ghost",
+                          size: "icon",
+                          className: "size-8 text-white/50 hover:text-white",
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-4" })
+                        }
+                      ) })
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "flex flex-col gap-1 px-3 py-4", children: navItems.map((item) => {
+                  const isActive = currentPath === item.path;
+                  const Icon2 = item.icon;
+                  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    Link,
+                    {
+                      to: item.path,
+                      onClick: () => setMobileOpen(false),
+                      className: cn(
+                        "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300",
+                        isActive ? "text-[#00d4ff]" : "text-white/60 hover:text-white hover:bg-white/5"
+                      ),
+                      style: isActive ? {
+                        background: "rgba(0,212,255,0.1)",
+                        border: "1px solid rgba(0,212,255,0.25)",
+                        boxShadow: "0 0 14px rgba(0,212,255,0.15)"
+                      } : {},
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Icon2,
+                          {
+                            className: cn(
+                              "size-4 shrink-0",
+                              isActive ? "text-[#00d4ff]" : "text-white/40"
+                            )
+                          }
+                        ),
+                        item.label,
+                        isActive && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-auto size-1.5 rounded-full bg-[#00d4ff] animate-pulse" })
+                      ]
+                    },
+                    item.path
+                  );
+                }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    className: "mt-auto border-t px-4 py-4",
+                    style: { borderColor: "rgba(0,212,255,0.12)" },
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", onClick: () => setMobileOpen(false), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        className: "w-full rounded-full py-2.5 text-sm font-semibold text-black",
+                        style: {
+                          background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
+                          boxShadow: "0 0 20px rgba(0,212,255,0.35)"
+                        },
+                        children: "Get in Touch"
+                      }
+                    ) })
+                  }
+                )
+              ] })
             }
           )
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Sidebar, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex flex-1 flex-col md:pl-64", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
-    ] })
-  ] });
+        ] }) })
+      ] })
+    }
+  );
+}
+function Layout({ children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: "relative flex min-h-screen flex-col overflow-hidden",
+      style: {
+        background: "#000",
+        backgroundImage: `
+          linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)
+        `,
+        backgroundSize: "60px 60px"
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            "aria-hidden": "true",
+            className: "pointer-events-none fixed inset-0 z-0 overflow-hidden",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute -left-40 -top-40 h-[600px] w-[600px] animate-orb-drift rounded-full opacity-[0.14]",
+                  style: {
+                    background: "radial-gradient(circle, rgba(0,212,255,0.8) 0%, rgba(77,159,255,0.4) 40%, transparent 70%)",
+                    filter: "blur(80px)"
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute -bottom-60 -right-40 h-[700px] w-[700px] rounded-full opacity-[0.10]",
+                  style: {
+                    background: "radial-gradient(circle, rgba(168,85,247,0.7) 0%, rgba(77,159,255,0.3) 45%, transparent 70%)",
+                    filter: "blur(100px)",
+                    animation: "orb-drift 16s ease-in-out infinite reverse"
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute left-1/2 top-1/3 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]",
+                  style: {
+                    background: "radial-gradient(circle, rgba(0,212,255,0.6) 0%, transparent 70%)",
+                    filter: "blur(60px)",
+                    animation: "orb-drift 20s ease-in-out infinite"
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute -right-20 top-20 h-[350px] w-[350px] rounded-full opacity-[0.10]",
+                  style: {
+                    background: "radial-gradient(circle, rgba(0,255,200,0.5) 0%, transparent 70%)",
+                    filter: "blur(70px)",
+                    animation: "orb-drift 14s ease-in-out infinite reverse"
+                  }
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex flex-1 flex-col pt-16", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+        ] })
+      ]
+    }
+  );
 }
 const LayoutGroupContext = reactExports.createContext({});
 function useConstant(init) {
@@ -46218,6 +46405,17 @@ const values = [
     glow: "hover:shadow-[0_0_50px_rgba(255,107,157,0.3)]"
   }
 ];
+const focusAreas = [
+  "Original engineering tutorials for AI, robotics, electronics, single-board computers, web apps, games, and design systems.",
+  "Project planning guides that explain parts, tools, safety checks, architecture, testing, and documentation.",
+  "Practical build notes for students, hobbyists, startup builders, educators, and self-taught developers.",
+  "Clear policy pages, contact information, and transparent educational content standards for reader trust."
+];
+const editorialStandards = [
+  "We write for humans first: every guide should explain what is being built, why it matters, what is required, and how to troubleshoot common problems.",
+  "We avoid misleading claims, copied content, unsafe shortcuts, and hidden advertising. Sponsored or affiliate content will be disclosed if added.",
+  "We encourage readers to verify datasheets, licenses, local rules, and safety requirements before using any tutorial in a real-world deployment."
+];
 const containerVariants$2 = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -46417,6 +46615,41 @@ function AboutPage() {
             );
           })
         }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.section,
+        {
+          initial: { opacity: 0, y: 16 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true },
+          transition: { duration: 0.45 },
+          className: "mt-14 grid gap-6 lg:grid-cols-2",
+          "aria-label": "About Xevorith details",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl border-t-2 border-t-[#4d9fff] p-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-4 text-2xl font-bold text-foreground", children: "What We Publish" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: focusAreas.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground",
+                  children: item
+                },
+                item
+              )) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl border-t-2 border-t-[#00ffc8] p-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-4 text-2xl font-bold text-foreground", children: "Editorial & Trust Standards" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: editorialStandards.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground",
+                  children: item
+                },
+                item
+              )) })
+            ] })
+          ]
+        }
       )
     ] })
   ] });
@@ -46517,6 +46750,18 @@ function Textarea({ className, ...props }) {
     }
   );
 }
+const contactEmail$2 = "CosmicNova369@gmail.com";
+const contactTopics = [
+  "Tutorial corrections, missing steps, or requests for clearer screenshots.",
+  "Project planning questions for AI, robotics, electronics, SBC, web, game, IoT, and design builds.",
+  "Collaboration, guest tutorial, education, and community partnership inquiries.",
+  "Privacy, terms, disclaimer, advertising, affiliate, or content transparency questions."
+];
+const contactNotes = [
+  "Please include your project goal, parts list, software versions, error messages, and photos or logs if relevant.",
+  "Do not send passwords, private keys, payment details, or sensitive personal information through this form.",
+  "We cannot promise custom engineering support for every message, but we review reader feedback to improve guides."
+];
 function ContactPage() {
   const [formData, setFormData] = reactExports.useState({
     name: "",
@@ -46530,6 +46775,15 @@ function ContactPage() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const subject = formData.subject.trim() ? `Xevorith contact: ${formData.subject.trim()}` : "Xevorith contact request";
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      "",
+      "Message:",
+      formData.message
+    ].join("\n");
+    window.location.href = `mailto:${contactEmail$2}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -46640,13 +46894,13 @@ function ContactPage() {
                         /* @__PURE__ */ jsxRuntimeExports.jsx(
                           "a",
                           {
-                            href: "mailto:CosmicNova369@gmail.com",
+                            href: `mailto:${contactEmail$2}`,
                             className: "text-sm transition-all duration-200",
                             style: {
                               color: "#00d4ff",
                               textShadow: "0 0 8px rgba(0,212,255,0.4)"
                             },
-                            children: "CosmicNova369@gmail.com"
+                            children: contactEmail$2
                           }
                         )
                       ] })
@@ -46677,7 +46931,11 @@ function ContactPage() {
                           background: "rgba(0,212,255,0.05)",
                           border: "1px solid rgba(0,212,255,0.15)"
                         },
-                        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs leading-relaxed text-muted-foreground", children: 'We typically respond within 24-48 hours. For urgent inquiries, please mention "Urgent" in the subject line.' })
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs leading-relaxed text-muted-foreground", children: [
+                          "This form opens your email app with a pre-filled message to",
+                          contactEmail$2,
+                          ". Send the email from your account so we can reply directly."
+                        ] })
                       }
                     )
                   ] }),
@@ -46840,11 +47098,11 @@ function ContactPage() {
                               color: "#00ffc8",
                               textShadow: "0 0 8px rgba(0,255,200,0.5)"
                             },
-                            children: "✓ Message Sent!"
+                            children: "✓ Opening Email App!"
                           }
                         ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
                           /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "size-4" }),
-                          "Send Message"
+                          "Send Email"
                         ] })
                       }
                     )
@@ -46861,9 +47119,347 @@ function ContactPage() {
             )
           }
         )
-      ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.section,
+        {
+          initial: { opacity: 0, y: 16 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true },
+          transition: { duration: 0.45 },
+          className: "mt-10 grid gap-6 lg:grid-cols-2",
+          "aria-label": "Contact guidance",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl border-t-2 border-t-[#00ffc8] p-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-4 text-xl font-bold text-foreground", children: "What You Can Contact Us About" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: contactTopics.map((topic) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground",
+                  children: topic
+                },
+                topic
+              )) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl border-t-2 border-t-[#4d9fff] p-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-4 text-xl font-bold text-foreground", children: "Helpful Message Tips" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: contactNotes.map((note) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "p",
+                {
+                  className: "rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground",
+                  children: note
+                },
+                note
+              )) })
+            ] })
+          ]
+        }
+      )
     ] })
   ] });
+}
+const updatedDate = "June 2, 2026";
+const contactEmail$1 = "CosmicNova369@gmail.com";
+const pageContent = {
+  privacy: {
+    eyebrow: "Privacy Policy",
+    title: "Privacy Policy",
+    intro: "This Privacy Policy explains how Xevorith collects, uses, protects, and manages information when you read tutorials, contact us, or interact with our engineering education website.",
+    sections: [
+      {
+        heading: "Information We Collect",
+        body: [
+          "Information you choose to provide, such as your name, email address, subject, and message when you use the contact form or email us directly.",
+          "Basic technical information that browsers and hosting providers commonly make available, such as device type, browser type, approximate region, referring pages, pages visited, and timestamps.",
+          "Non-sensitive usage information that helps us understand which tutorials and categories are useful to readers."
+        ]
+      },
+      {
+        heading: "How We Use Information",
+        body: [
+          "To reply to project questions, support requests, collaboration inquiries, and feedback.",
+          "To improve tutorial quality, site navigation, accessibility, performance, safety notes, and troubleshooting resources.",
+          "To protect the website from spam, abuse, unauthorized access, and technical issues.",
+          "To comply with applicable legal obligations and enforce our website policies."
+        ]
+      },
+      {
+        heading: "Cookies, Analytics, and Advertising",
+        body: [
+          "Xevorith may use essential cookies for site functionality and may use privacy-conscious analytics to measure aggregate traffic and content performance.",
+          "If advertising services such as Google AdSense are enabled, advertising partners may use cookies or similar technologies to show, measure, and improve ads. These partners may process data according to their own policies and user controls.",
+          "You can usually control cookies through your browser settings. Blocking some cookies may affect certain website features."
+        ]
+      },
+      {
+        heading: "Data Sharing",
+        body: [
+          "We do not sell personal information. We may share limited information with service providers that help operate the website, respond to messages, prevent abuse, provide analytics, or deliver advertising where enabled.",
+          "We may disclose information if required by law, to protect rights and safety, or to investigate misuse of the website."
+        ]
+      },
+      {
+        heading: "Data Retention and Security",
+        body: [
+          "We keep contact messages only as long as reasonably needed to respond, maintain records, improve service, or satisfy legal requirements.",
+          "We use reasonable administrative and technical safeguards, but no website or internet transmission can be guaranteed completely secure."
+        ]
+      },
+      {
+        heading: "Your Choices",
+        body: [
+          "You may ask us to access, update, or delete contact information you provided, subject to reasonable identity verification and legal retention needs.",
+          "You can unsubscribe from optional communications if any are offered in the future, and you can manage cookies through your browser or device settings."
+        ]
+      },
+      {
+        heading: "Children's Privacy",
+        body: [
+          "Xevorith is intended for general engineering education audiences and is not directed at children under 13. We do not knowingly collect personal information from children under 13."
+        ]
+      },
+      {
+        heading: "Contact About Privacy",
+        body: [
+          `For privacy questions or requests, contact us at ${contactEmail$1}.`
+        ]
+      }
+    ]
+  },
+  terms: {
+    eyebrow: "Terms & Conditions",
+    title: "Terms & Conditions",
+    intro: "These Terms & Conditions explain the rules for using Xevorith tutorials, project guides, downloadable materials, contact features, and related website content.",
+    sections: [
+      {
+        heading: "Acceptance of Terms",
+        body: [
+          "By using this website, you agree to these Terms & Conditions. If you do not agree, please stop using the website.",
+          "We may update these terms as the website grows. Continued use after an update means you accept the revised terms."
+        ]
+      },
+      {
+        heading: "Educational Content Only",
+        body: [
+          "Tutorials, project ideas, code snippets, diagrams, and recommendations are provided for educational and informational purposes.",
+          "You are responsible for checking compatibility, local laws, safety requirements, licenses, and manufacturer documentation before building or deploying any project."
+        ]
+      },
+      {
+        heading: "Acceptable Use",
+        body: [
+          "Do not misuse the website, attempt unauthorized access, submit spam, upload malicious content, scrape excessively, or interfere with site performance.",
+          "Do not use Xevorith content to build unsafe devices, violate privacy, attack systems, or break applicable laws."
+        ]
+      },
+      {
+        heading: "Intellectual Property",
+        body: [
+          "Xevorith names, page designs, original text, graphics, and educational materials are owned by Xevorith or used with permission unless otherwise stated.",
+          "You may reference short excerpts with attribution, but you may not copy entire pages, repackage tutorials, or imply endorsement without permission."
+        ]
+      },
+      {
+        heading: "User Messages and Feedback",
+        body: [
+          "When you send ideas, feedback, or project questions, you confirm that you have the right to share them.",
+          "We may use non-confidential feedback to improve tutorials and services, but we will not intentionally publish personal contact details without permission."
+        ]
+      },
+      {
+        heading: "Third-Party Links and Tools",
+        body: [
+          "The website may mention third-party products, libraries, hosting providers, videos, communities, or tools. We are not responsible for third-party websites, pricing, availability, safety, or policies."
+        ]
+      },
+      {
+        heading: "No Warranties",
+        body: [
+          "The website is provided on an as-is and as-available basis. We do not promise uninterrupted access, error-free content, or suitability for a specific project."
+        ]
+      },
+      {
+        heading: "Limitation of Liability",
+        body: [
+          "To the maximum extent permitted by law, Xevorith is not liable for indirect, incidental, special, consequential, or punitive damages arising from use of the website or reliance on tutorials."
+        ]
+      },
+      {
+        heading: "Contact",
+        body: [`Questions about these terms can be sent to ${contactEmail$1}.`]
+      }
+    ]
+  },
+  disclaimer: {
+    eyebrow: "Disclaimer",
+    title: "Disclaimer",
+    intro: "This Disclaimer explains important limits about Xevorith tutorials, project plans, product mentions, engineering guidance, and website monetization.",
+    sections: [
+      {
+        heading: "General Information",
+        body: [
+          "Xevorith publishes engineering, software, AI, robotics, electronics, and design content for education. Content should not be treated as professional engineering, legal, financial, medical, or safety certification advice."
+        ]
+      },
+      {
+        heading: "Build and Safety Responsibility",
+        body: [
+          "Hardware, electronics, robotics, batteries, power supplies, 3D printers, tools, and networked systems can create risks if used incorrectly.",
+          "Always follow manufacturer instructions, use protective equipment, disconnect power before wiring, verify ratings, and ask a qualified professional when a project involves mains voltage, high current, vehicles, medical use, public deployment, or safety-critical operation."
+        ]
+      },
+      {
+        heading: "Accuracy and Availability",
+        body: [
+          "We work to keep content clear and useful, but technologies, libraries, prices, product names, and platform rules change. Verify details before purchasing parts or deploying systems.",
+          "We may update, remove, or reorganize content at any time without notice."
+        ]
+      },
+      {
+        heading: "Results May Vary",
+        body: [
+          "Project outcomes depend on tools, parts quality, environment, skill level, software versions, and testing conditions. We cannot guarantee identical results for every reader."
+        ]
+      },
+      {
+        heading: "Advertising and Affiliate Transparency",
+        body: [
+          "Xevorith may display ads, sponsored placements, or affiliate links in the future. Such monetization helps support free educational content, and we aim to keep recommendations honest and clearly distinguish advertising where applicable.",
+          "Advertising partners may use cookies or similar technologies according to their policies and user controls."
+        ]
+      },
+      {
+        heading: "External Links",
+        body: [
+          "Links to external websites are provided for convenience and learning. We do not control external content and are not responsible for third-party accuracy, security, terms, or privacy practices."
+        ]
+      },
+      {
+        heading: "Contact",
+        body: [`To report an issue with content, email ${contactEmail$1}.`]
+      }
+    ]
+  }
+};
+function LegalPage({ type }) {
+  const content = pageContent[type];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden px-6 py-12 md:py-16", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "pointer-events-none absolute -top-24 left-1/2 h-[360px] w-[360px] -translate-x-1/2 rounded-full opacity-15 blur-[120px]",
+        style: {
+          background: "radial-gradient(circle, rgba(0,212,255,0.5) 0%, transparent 70%)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-4xl", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.header,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.5 },
+          className: "mb-10 text-center",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                className: "mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest",
+                style: {
+                  background: "rgba(0,212,255,0.07)",
+                  border: "1px solid rgba(0,212,255,0.3)",
+                  color: "#00d4ff",
+                  backdropFilter: "blur(12px)"
+                },
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(ShieldCheck, { className: "size-3.5" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: content.eyebrow })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "h1",
+              {
+                className: "font-display text-4xl font-extrabold tracking-tight md:text-5xl",
+                style: {
+                  background: "linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text"
+                },
+                children: content.title
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mx-auto mt-4 max-w-3xl text-sm text-muted-foreground", children: [
+              "Last updated: ",
+              updatedDate
+            ] })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.article,
+        {
+          initial: { opacity: 0, y: 18 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.5, delay: 0.1 },
+          className: "glass-card rounded-2xl border-t-2 border-t-[#00d4ff] p-6 md:p-8",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-8 flex items-start gap-4 rounded-xl border border-[#00d4ff]/20 bg-[#00d4ff]/5 p-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "mt-1 size-5 shrink-0 text-[#00d4ff]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm leading-relaxed text-muted-foreground", children: content.intro })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8", children: content.sections.map((section) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-3 text-xl font-bold text-foreground", children: section.heading }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-3", children: section.body.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "li",
+                {
+                  className: "rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-relaxed text-muted-foreground",
+                  children: item
+                },
+                item
+              )) })
+            ] }, section.heading)) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-10 rounded-2xl border border-[#00ffc8]/20 bg-[#00ffc8]/5 p-5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-2 flex items-center gap-2 font-semibold text-[#00ffc8]", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "size-4" }),
+                "Need help?"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm leading-relaxed text-muted-foreground", children: [
+                "Visit the",
+                " ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Link,
+                  {
+                    to: "/contact",
+                    className: "text-[#00d4ff] underline underline-offset-4",
+                    children: "Contact Us"
+                  }
+                ),
+                " ",
+                "page or email",
+                " ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "a",
+                  {
+                    href: `mailto:${contactEmail$1}`,
+                    className: "text-[#00d4ff] underline underline-offset-4",
+                    children: contactEmail$1
+                  }
+                ),
+                " ",
+                "for questions about this policy."
+              ] })
+            ] })
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function DisclaimerPage() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(LegalPage, { type: "disclaimer" });
 }
 const services = [
   {
@@ -47000,18 +47596,18 @@ function HomePage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "span",
                     {
-                      className: "neon-glow",
                       style: {
                         background: "linear-gradient(135deg, #00d4ff 0%, #4d9fff 40%, #a855f7 80%, #00ffc8 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
-                        backgroundClip: "text"
+                        backgroundClip: "text",
+                        filter: "drop-shadow(0 0 30px rgba(0,212,255,0.5))"
                       },
                       children: "Xevorith"
                     }
                   ),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground", children: "Engineering Lab" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white", children: "Engineering Lab" })
                 ]
               }
             ),
@@ -47044,11 +47640,10 @@ function HomePage() {
                     {
                       "data-ocid": "home.hero.cta_button",
                       size: "lg",
-                      className: "rounded-full px-8 font-semibold",
+                      className: "rounded-full px-8 font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,212,255,0.6)]",
                       style: {
                         background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
-                        color: "#000",
-                        boxShadow: "0 0 32px rgba(0,212,255,0.4), 0 0 64px rgba(0,212,255,0.15)",
+                        boxShadow: "0 0 32px rgba(0,212,255,0.45), 0 0 64px rgba(0,212,255,0.18)",
                         border: "none"
                       },
                       children: "Get Started"
@@ -47060,12 +47655,14 @@ function HomePage() {
                       "data-ocid": "home.hero.learn_button",
                       variant: "outline",
                       size: "lg",
-                      className: "rounded-full px-8 font-semibold",
+                      className: "rounded-full px-8 font-semibold transition-all duration-300 hover:scale-105",
                       style: {
-                        background: "rgba(0,212,255,0.05)",
-                        border: "1px solid rgba(0,212,255,0.35)",
+                        background: "rgba(0,212,255,0.07)",
+                        border: "1px solid rgba(0,212,255,0.4)",
                         color: "#00d4ff",
-                        backdropFilter: "blur(12px)"
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
+                        boxShadow: "0 0 20px rgba(0,212,255,0.15), inset 0 1px 0 rgba(255,255,255,0.08)"
                       },
                       children: "Learn More"
                     }
@@ -47212,95 +47809,398 @@ function HomePage() {
     ] }) })
   ] });
 }
-const categories = ["All", "AI", "Robotics", "Electronics", "SBC"];
-const categoryColors = {
-  AI: {
-    accent: "#00d4ff",
-    border: "border-t-[#00d4ff]",
-    glow: "hover:shadow-[0_0_50px_rgba(0,212,255,0.3)]"
-  },
-  Robotics: {
-    accent: "#4d9fff",
-    border: "border-t-[#4d9fff]",
-    glow: "hover:shadow-[0_0_50px_rgba(77,159,255,0.3)]"
-  },
-  Electronics: {
-    accent: "#a855f7",
-    border: "border-t-[#a855f7]",
-    glow: "hover:shadow-[0_0_50px_rgba(168,85,247,0.3)]"
-  },
-  SBC: {
-    accent: "#00ffc8",
-    border: "border-t-[#00ffc8]",
-    glow: "hover:shadow-[0_0_50px_rgba(0,255,200,0.3)]"
-  },
-  All: {
-    accent: "#00d4ff",
-    border: "border-t-[#00d4ff]",
-    glow: "hover:shadow-[0_0_50px_rgba(0,212,255,0.3)]"
-  }
-};
+function PrivacyPage() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(LegalPage, { type: "privacy" });
+}
+function TermsPage() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(LegalPage, { type: "terms" });
+}
+const categories = [
+  "All",
+  "AI",
+  "Robotics",
+  "Electronics",
+  "SBC",
+  "Web Apps",
+  "Game Dev",
+  "IoT",
+  "Cybersecurity",
+  "Cloud",
+  "DevOps",
+  "Data Science",
+  "Computer Vision",
+  "3D Printing",
+  "Embedded",
+  "Mobile Apps",
+  "UI/UX",
+  "Career"
+];
+const palette = [
+  "#00d4ff",
+  "#4d9fff",
+  "#a855f7",
+  "#00ffc8",
+  "#ff6b9d",
+  "#facc15",
+  "#fb923c",
+  "#34d399",
+  "#38bdf8",
+  "#c084fc",
+  "#f472b6",
+  "#22d3ee",
+  "#a3e635",
+  "#f87171",
+  "#818cf8",
+  "#2dd4bf",
+  "#e879f9",
+  "#fde047"
+];
+const categoryColors = Object.fromEntries(
+  categories.map((category, index2) => {
+    const color2 = palette[index2 % palette.length];
+    return [
+      category,
+      {
+        accent: color2,
+        border: "border-t-[#00d4ff]",
+        glow: "hover:shadow-[0_0_50px_rgba(0,212,255,0.22)]"
+      }
+    ];
+  })
+);
 const tutorials = [
   {
     id: 1,
     title: "Getting Started with Neural Networks",
     category: "AI",
     duration: "45 min",
-    description: "Build your first neural network from scratch using Python and understand the fundamentals of deep learning."
+    level: "Beginner",
+    description: "Build your first neural network in Python and understand datasets, layers, training loops, evaluation, and model saving."
   },
   {
     id: 2,
-    title: "ROS2 Robot Navigation Basics",
-    category: "Robotics",
-    duration: "60 min",
-    description: "Learn how to set up ROS2 for autonomous robot navigation, SLAM, and path planning."
+    title: "Prompt Engineering for Practical Automation",
+    category: "AI",
+    duration: "35 min",
+    level: "Beginner",
+    description: "Create reusable prompt patterns for summarization, classification, coding assistance, and workflow planning."
   },
   {
     id: 3,
-    title: "Arduino Sensor Interfacing",
-    category: "Electronics",
-    duration: "30 min",
-    description: "Master the art of connecting and programming various sensors with Arduino microcontrollers."
+    title: "Fine-Tuning Concepts Without the Hype",
+    category: "AI",
+    duration: "55 min",
+    level: "Intermediate",
+    description: "Learn when fine-tuning helps, how to prepare examples, and how to evaluate model behavior responsibly."
   },
   {
     id: 4,
-    title: "Raspberry Pi Home Server",
-    category: "SBC",
-    duration: "40 min",
-    description: "Transform your Raspberry Pi into a powerful home server with Docker, NAS, and media streaming."
+    title: "ROS2 Robot Navigation Basics",
+    category: "Robotics",
+    duration: "60 min",
+    level: "Intermediate",
+    description: "Set up ROS2 navigation, mapping, localization, and safe path planning for an autonomous robot platform."
   },
   {
     id: 5,
-    title: "Computer Vision with OpenCV",
-    category: "AI",
-    duration: "55 min",
-    description: "Implement real-time object detection and image processing pipelines using OpenCV and Python."
-  },
-  {
-    id: 6,
     title: "Building a 3D Printed Robot Arm",
     category: "Robotics",
     duration: "90 min",
-    description: "Design, print, and assemble a functional 3-DOF robot arm with servo control."
+    level: "Intermediate",
+    description: "Design, print, assemble, and calibrate a compact servo-powered arm with repeatable movement routines."
+  },
+  {
+    id: 6,
+    title: "Line-Following Robot from Scratch",
+    category: "Robotics",
+    duration: "50 min",
+    level: "Beginner",
+    description: "Combine IR sensors, motor drivers, and control logic to build a reliable classroom-friendly robot."
   },
   {
     id: 7,
-    title: "PCB Design for Beginners",
+    title: "Arduino Sensor Interfacing",
     category: "Electronics",
-    duration: "50 min",
-    description: "Create your first printed circuit board design using KiCad from schematic to fabrication."
+    duration: "30 min",
+    level: "Beginner",
+    description: "Wire analog and digital sensors, debounce inputs, smooth noisy readings, and display useful measurements."
   },
   {
     id: 8,
+    title: "PCB Design for Beginners",
+    category: "Electronics",
+    duration: "50 min",
+    level: "Beginner",
+    description: "Create a KiCad schematic, route a simple PCB, check manufacturability, and prepare fabrication files."
+  },
+  {
+    id: 9,
+    title: "Power Budgeting for Maker Projects",
+    category: "Electronics",
+    duration: "40 min",
+    level: "Intermediate",
+    description: "Estimate current draw, choose regulators, protect batteries, and avoid overheating in portable builds."
+  },
+  {
+    id: 10,
+    title: "Raspberry Pi Home Server",
+    category: "SBC",
+    duration: "40 min",
+    level: "Beginner",
+    description: "Turn a Raspberry Pi into a small home server with Docker containers, backups, and secure remote access."
+  },
+  {
+    id: 11,
     title: "Jetson Nano AI at the Edge",
     category: "SBC",
     duration: "70 min",
-    description: "Deploy TensorRT-optimized models on NVIDIA Jetson Nano for real-time edge AI inference."
+    level: "Advanced",
+    description: "Deploy optimized computer-vision models on NVIDIA Jetson hardware for real-time edge inference."
+  },
+  {
+    id: 12,
+    title: "Orange Pi Media and Automation Hub",
+    category: "SBC",
+    duration: "45 min",
+    level: "Intermediate",
+    description: "Install Linux, tune storage, and run useful services for dashboards, automation, and media utilities."
+  },
+  {
+    id: 13,
+    title: "Responsive Portfolio Website Build",
+    category: "Web Apps",
+    duration: "55 min",
+    level: "Beginner",
+    description: "Plan sections, build reusable components, improve accessibility, and deploy a fast portfolio website."
+  },
+  {
+    id: 14,
+    title: "Full-Stack Project Dashboard",
+    category: "Web Apps",
+    duration: "85 min",
+    level: "Intermediate",
+    description: "Create a dashboard with typed data models, form validation, charts, and clean loading states."
+  },
+  {
+    id: 15,
+    title: "SEO Checklist for Technical Blogs",
+    category: "Web Apps",
+    duration: "25 min",
+    level: "Beginner",
+    description: "Write searchable titles, metadata, internal links, and helpful content structures for tutorial websites."
+  },
+  {
+    id: 16,
+    title: "2D Game Prototype Loop",
+    category: "Game Dev",
+    duration: "60 min",
+    level: "Beginner",
+    description: "Design a core mechanic, prototype controls, add scoring, and polish feedback for a playable demo."
+  },
+  {
+    id: 17,
+    title: "Game Feel with Particles and Sound",
+    category: "Game Dev",
+    duration: "45 min",
+    level: "Intermediate",
+    description: "Use timing, screenshake, particles, animation curves, and sound cues to make interactions feel alive."
+  },
+  {
+    id: 18,
+    title: "ESP32 Weather Station",
+    category: "IoT",
+    duration: "50 min",
+    level: "Beginner",
+    description: "Read temperature, humidity, and pressure sensors, publish values, and build a simple live dashboard."
+  },
+  {
+    id: 19,
+    title: "MQTT for Home Automation",
+    category: "IoT",
+    duration: "55 min",
+    level: "Intermediate",
+    description: "Connect microcontrollers and services with MQTT topics, retained messages, and safe access controls."
+  },
+  {
+    id: 20,
+    title: "Secure Your Developer Laptop",
+    category: "Cybersecurity",
+    duration: "35 min",
+    level: "Beginner",
+    description: "Apply practical hardening steps: updates, password managers, disk encryption, backups, and phishing awareness."
+  },
+  {
+    id: 21,
+    title: "Web Security Fundamentals",
+    category: "Cybersecurity",
+    duration: "65 min",
+    level: "Intermediate",
+    description: "Understand common vulnerabilities, safe authentication habits, input validation, headers, and dependency hygiene."
+  },
+  {
+    id: 22,
+    title: "Deploy a Static Site to the Cloud",
+    category: "Cloud",
+    duration: "35 min",
+    level: "Beginner",
+    description: "Choose hosting, configure a domain, enable HTTPS, set cache headers, and monitor uptime."
+  },
+  {
+    id: 23,
+    title: "Serverless API Starter",
+    category: "Cloud",
+    duration: "55 min",
+    level: "Intermediate",
+    description: "Build an API with environment variables, structured logs, validation, and simple cost controls."
+  },
+  {
+    id: 24,
+    title: "GitHub Actions CI Pipeline",
+    category: "DevOps",
+    duration: "45 min",
+    level: "Beginner",
+    description: "Automate linting, tests, builds, artifact uploads, and deployment gates for a small project."
+  },
+  {
+    id: 25,
+    title: "Docker Compose for Local Development",
+    category: "DevOps",
+    duration: "50 min",
+    level: "Intermediate",
+    description: "Run databases, APIs, and supporting services locally with repeatable containers and health checks."
+  },
+  {
+    id: 26,
+    title: "Data Cleaning with Python",
+    category: "Data Science",
+    duration: "45 min",
+    level: "Beginner",
+    description: "Load messy data, handle missing values, normalize columns, and create a repeatable cleaning notebook."
+  },
+  {
+    id: 27,
+    title: "Build a Sensor Data Dashboard",
+    category: "Data Science",
+    duration: "75 min",
+    level: "Intermediate",
+    description: "Collect readings, chart trends, calculate summary metrics, and explain insights clearly."
+  },
+  {
+    id: 28,
+    title: "Computer Vision with OpenCV",
+    category: "Computer Vision",
+    duration: "55 min",
+    level: "Intermediate",
+    description: "Implement object detection, contour analysis, image filtering, and live camera processing in Python."
+  },
+  {
+    id: 29,
+    title: "Quality Control Camera Rig",
+    category: "Computer Vision",
+    duration: "80 min",
+    level: "Advanced",
+    description: "Build a repeatable lighting, camera, and inspection pipeline for detecting simple product defects."
+  },
+  {
+    id: 30,
+    title: "3D Printing Calibration Guide",
+    category: "3D Printing",
+    duration: "40 min",
+    level: "Beginner",
+    description: "Tune bed leveling, extrusion, temperature, supports, and slicer profiles for cleaner prints."
+  },
+  {
+    id: 31,
+    title: "Design Enclosures for Electronics",
+    category: "3D Printing",
+    duration: "65 min",
+    level: "Intermediate",
+    description: "Model mounting posts, cable openings, ventilation, tolerances, and snap-fit features for boards."
+  },
+  {
+    id: 32,
+    title: "Microcontroller Sleep Modes",
+    category: "Embedded",
+    duration: "50 min",
+    level: "Intermediate",
+    description: "Reduce power use with sleep modes, interrupts, watchdog timers, and measurement techniques."
+  },
+  {
+    id: 33,
+    title: "Embedded C Debugging Workflow",
+    category: "Embedded",
+    duration: "70 min",
+    level: "Advanced",
+    description: "Use serial logs, breakpoints, assertions, and datasheet-driven debugging for firmware projects."
+  },
+  {
+    id: 34,
+    title: "Mobile App MVP Planning",
+    category: "Mobile Apps",
+    duration: "30 min",
+    level: "Beginner",
+    description: "Define user stories, screens, release scope, accessibility needs, and analytics before coding."
+  },
+  {
+    id: 35,
+    title: "Cross-Platform App Components",
+    category: "Mobile Apps",
+    duration: "60 min",
+    level: "Intermediate",
+    description: "Build reusable mobile UI pieces with loading states, validation, navigation, and offline-friendly patterns."
+  },
+  {
+    id: 36,
+    title: "Design Systems for Builders",
+    category: "UI/UX",
+    duration: "45 min",
+    level: "Beginner",
+    description: "Create colors, typography, spacing, components, and documentation that keep projects consistent."
+  },
+  {
+    id: 37,
+    title: "Accessibility Audit Basics",
+    category: "UI/UX",
+    duration: "40 min",
+    level: "Intermediate",
+    description: "Check headings, keyboard navigation, contrast, labels, focus states, and meaningful page structure."
+  },
+  {
+    id: 38,
+    title: "Engineering Portfolio Roadmap",
+    category: "Career",
+    duration: "30 min",
+    level: "Beginner",
+    description: "Plan projects, document decisions, capture screenshots, write case studies, and present your skills clearly."
+  },
+  {
+    id: 39,
+    title: "Technical Writing for Tutorials",
+    category: "Career",
+    duration: "35 min",
+    level: "Beginner",
+    description: "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations."
   }
+];
+const buildGuideSteps = [
+  "Pick one clear problem and write a one-sentence goal, target user, and success metric.",
+  "List the parts, tools, software accounts, budget, and safety requirements before buying anything.",
+  "Sketch the architecture: inputs, processing, outputs, power, data storage, and user interface.",
+  "Build the smallest working prototype first, then test each module separately with notes and photos.",
+  "Integrate modules gradually, record failures, and improve wiring, code structure, enclosure, and UX.",
+  "Publish a final guide with setup steps, screenshots, source files, credits, limitations, and maintenance tips."
+];
+const projectIdeas = [
+  "AI camera that counts objects on a workbench",
+  "ESP32 environmental monitor with dashboard",
+  "Raspberry Pi media and backup server",
+  "ROS2 rover with obstacle avoidance",
+  "Portfolio website with tutorial articles",
+  "3D-printed smart enclosure for a sensor node"
 ];
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.08 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
 };
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -47310,9 +48210,43 @@ const itemVariants = {
     transition: { duration: 0.4, ease: "easeOut" }
   }
 };
+const contactEmail = "CosmicNova369@gmail.com";
+function buildMailtoLink(data) {
+  const subject = data.topic.trim() ? `Xevorith tutorial request: ${data.topic.trim()}` : "Xevorith tutorial request";
+  const body = [
+    `Name: ${data.name || "Not provided"}`,
+    `Email: ${data.email || "Not provided"}`,
+    `Topic: ${data.topic || "Not provided"}`,
+    "",
+    "Message:",
+    data.message || "Please help me choose or build a tutorial project."
+  ].join("\n");
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 function TutorialsPage() {
   const [activeCategory, setActiveCategory] = reactExports.useState("All");
+  const [guideRequest, setGuideRequest] = reactExports.useState({
+    name: "",
+    email: "",
+    topic: "",
+    message: ""
+  });
   const filtered = activeCategory === "All" ? tutorials : tutorials.filter((t) => t.category === activeCategory);
+  const featuredTutorials = [
+    tutorials.find((tutorial) => tutorial.id === 14),
+    tutorials.find((tutorial) => tutorial.id === 24),
+    tutorials.find((tutorial) => tutorial.id === 28)
+  ].filter((tutorial) => Boolean(tutorial));
+  const handleGuideRequestChange = (event) => {
+    setGuideRequest((previous) => ({
+      ...previous,
+      [event.target.name]: event.target.value
+    }));
+  };
+  const handleGuideRequestSubmit = (event) => {
+    event.preventDefault();
+    window.location.href = buildMailtoLink(guideRequest);
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden px-6 py-12 md:py-16", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
@@ -47332,7 +48266,7 @@ function TutorialsPage() {
         }
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-6xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-7xl", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         motion.div,
         {
@@ -47353,27 +48287,211 @@ function TutorialsPage() {
                 },
                 children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "size-3.5" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Learning Center" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Xevorith Blog" })
                 ]
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "h1",
               {
-                className: "neon-glow font-display text-4xl font-extrabold tracking-tight md:text-5xl",
+                className: "font-display text-4xl font-extrabold tracking-tight md:text-6xl",
                 style: {
                   background: "linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundClip: "text"
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 0 24px rgba(0,212,255,0.4))"
                 },
-                children: "Tutorials & Projects"
+                children: "Tutorials, Blogs & Build Guides"
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-muted-foreground", children: "Explore hands-on guides across AI, robotics, electronics, and SBC projects" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mx-auto mt-4 max-w-3xl text-muted-foreground", children: "A blog-style learning hub for practical engineering articles: featured guides first, clean category browsing, latest posts, and a direct email request form for custom project help." })
           ]
         }
       ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-12 grid gap-6 lg:grid-cols-[1.6fr_0.9fr]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, x: -18 },
+            animate: { opacity: 1, x: 0 },
+            transition: { duration: 0.45 },
+            className: "glass-card relative overflow-hidden rounded-3xl border-t-2 border-t-[#00d4ff] p-6 md:p-8",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-[#00d4ff]", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "size-4" }),
+                    " Featured Articles"
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl font-bold text-foreground", children: "Start with the most useful project guides" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/10 px-4 py-2 text-sm font-semibold text-[#00d4ff]", children: [
+                  tutorials.length,
+                  "+ guides"
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid gap-5 md:grid-cols-3", children: featuredTutorials.map((tutorial) => {
+                const colors = categoryColors[tutorial.category] ?? categoryColors.AI;
+                return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "article",
+                  {
+                    className: "group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-all duration-300 hover:-translate-y-1",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          className: "absolute inset-x-0 top-0 h-1",
+                          style: { background: colors.accent }
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4 flex flex-wrap items-center gap-2", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "span",
+                          {
+                            className: "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+                            style: {
+                              background: `${colors.accent}18`,
+                              color: colors.accent,
+                              border: `1px solid ${colors.accent}40`
+                            },
+                            children: tutorial.category
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: tutorial.level })
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-lg font-bold leading-snug text-foreground", children: tutorial.title }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-sm leading-relaxed text-muted-foreground", children: tutorial.description }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-5 flex items-center justify-between text-xs font-semibold text-muted-foreground", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "size-3" }),
+                          " ",
+                          tutorial.duration
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                          "a",
+                          {
+                            href: buildMailtoLink({
+                              name: "",
+                              email: "",
+                              topic: tutorial.title,
+                              message: `Hi Xevorith, I want help with this tutorial: ${tutorial.title}`
+                            }),
+                            className: "flex items-center gap-1 transition-colors hover:text-[#00d4ff]",
+                            children: [
+                              "Ask help ",
+                              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "size-3" })
+                            ]
+                          }
+                        )
+                      ] })
+                    ]
+                  },
+                  tutorial.id
+                );
+              }) })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.aside,
+          {
+            initial: { opacity: 0, x: 18 },
+            animate: { opacity: 1, x: 0 },
+            transition: { duration: 0.45, delay: 0.08 },
+            className: "space-y-5",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-3xl border-t-2 border-t-[#a855f7] p-6", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4 flex items-center gap-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-11 items-center justify-center rounded-xl bg-purple-400/10 text-[#a855f7]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "size-5" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-xl font-bold text-foreground", children: "Request a Tutorial" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Send mail directly to us from the website." })
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleGuideRequestSubmit, className: "space-y-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      name: "name",
+                      value: guideRequest.name,
+                      onChange: handleGuideRequestChange,
+                      placeholder: "Your name",
+                      className: "w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      name: "email",
+                      type: "email",
+                      value: guideRequest.email,
+                      onChange: handleGuideRequestChange,
+                      placeholder: "Your email",
+                      className: "w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "input",
+                    {
+                      name: "topic",
+                      value: guideRequest.topic,
+                      onChange: handleGuideRequestChange,
+                      placeholder: "Tutorial topic",
+                      required: true,
+                      className: "w-full rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "textarea",
+                    {
+                      name: "message",
+                      value: guideRequest.message,
+                      onChange: handleGuideRequestChange,
+                      placeholder: "Tell us what you want to build...",
+                      rows: 4,
+                      className: "w-full resize-none rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-foreground outline-none transition focus:border-[#00d4ff]/60"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "button",
+                    {
+                      type: "submit",
+                      className: "flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-black transition hover:scale-[1.01]",
+                      style: {
+                        background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
+                        boxShadow: "0 0 24px rgba(0,212,255,0.28)"
+                      },
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "size-4" }),
+                        "Send Email Request"
+                      ]
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "a",
+                  {
+                    href: `mailto:${contactEmail}`,
+                    className: "mt-4 block text-center text-sm font-semibold text-[#00d4ff] underline underline-offset-4",
+                    children: [
+                      "Or email ",
+                      contactEmail
+                    ]
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-3xl border-t-2 border-t-[#00ffc8] p-6", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display mb-4 text-xl font-bold text-foreground", children: "Build Guide Workflow" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: buildGuideSteps.slice(0, 4).map((step, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 text-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex size-7 shrink-0 items-center justify-center rounded-full bg-[#00ffc8]/10 text-xs font-bold text-[#00ffc8]", children: index2 + 1 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "leading-relaxed text-muted-foreground", children: step })
+                ] }, step)) })
+              ] })
+            ]
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         motion.div,
         {
@@ -47389,7 +48507,7 @@ function TutorialsPage() {
               "button",
               {
                 type: "button",
-                "data-ocid": `tutorials.filter.${cat.toLowerCase()}_button`,
+                "data-ocid": `tutorials.filter.${cat.toLowerCase().replace(/\s+/g, "_")}_button`,
                 onClick: () => setActiveCategory(cat),
                 className: cn(
                   "rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300",
@@ -47408,6 +48526,29 @@ function TutorialsPage() {
           })
         }
       ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-sm text-muted-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "size-4 text-[#00d4ff]" }),
+          "Showing ",
+          filtered.length,
+          " article",
+          filtered.length === 1 ? "" : "s",
+          " ",
+          "in ",
+          activeCategory
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "a",
+          {
+            href: `mailto:${contactEmail}?subject=${encodeURIComponent("Xevorith tutorial question")}`,
+            className: "inline-flex items-center gap-2 text-sm font-semibold text-[#00d4ff] underline underline-offset-4",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "size-4" }),
+              " Contact tutorial team"
+            ]
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { mode: "wait", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         motion.div,
         {
@@ -47415,60 +48556,78 @@ function TutorialsPage() {
           initial: "hidden",
           animate: "visible",
           exit: { opacity: 0 },
-          className: "grid gap-5 sm:grid-cols-2 lg:grid-cols-3",
+          className: "grid gap-5 md:grid-cols-2",
           children: filtered.map((tutorial, index2) => {
             const colors = categoryColors[tutorial.category] ?? categoryColors.AI;
             return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              motion.div,
+              motion.article,
               {
                 variants: itemVariants,
                 "data-ocid": `tutorials.item.${index2 + 1}`,
-                className: cn(
-                  "glass-card group relative cursor-pointer overflow-hidden rounded-2xl border-t-2 p-5 transition-all duration-300",
-                  colors.border,
-                  colors.glow
-                ),
+                className: "glass-card group relative overflow-hidden rounded-2xl border border-white/10 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(0,212,255,0.14)]",
+                style: { borderTop: `2px solid ${colors.accent}` },
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "div",
-                    {
-                      className: "pointer-events-none absolute inset-x-0 top-0 h-px",
-                      style: {
-                        background: `linear-gradient(90deg, transparent, ${colors.accent}80, transparent)`
-                      }
-                    }
-                  ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-3 flex items-center gap-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col gap-4 md:flex-row", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "span",
+                      "div",
                       {
-                        className: "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+                        className: "flex min-h-28 w-full shrink-0 items-center justify-center rounded-2xl md:w-36",
                         style: {
-                          background: `${colors.accent}18`,
-                          color: colors.accent,
-                          border: `1px solid ${colors.accent}40`
+                          background: `linear-gradient(135deg, ${colors.accent}22, rgba(255,255,255,0.04))`,
+                          border: `1px solid ${colors.accent}26`
                         },
-                        children: tutorial.category
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          BookOpen,
+                          {
+                            className: "size-9",
+                            style: { color: colors.accent }
+                          }
+                        )
                       }
                     ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-xs text-muted-foreground", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "size-3" }),
-                      tutorial.duration
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-2 flex flex-wrap items-center gap-2", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "span",
+                          {
+                            className: "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+                            style: {
+                              background: `${colors.accent}18`,
+                              color: colors.accent,
+                              border: `1px solid ${colors.accent}40`
+                            },
+                            children: tutorial.category
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-xs text-muted-foreground", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "size-3" }),
+                          tutorial.duration
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-full border border-white/10 px-2 py-0.5 text-xs text-muted-foreground", children: tutorial.level })
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-lg font-bold leading-snug text-foreground", children: tutorial.title }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 flex-1 text-sm leading-relaxed text-muted-foreground", children: tutorial.description }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: colors.accent }, children: "Read guide" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                          "a",
+                          {
+                            href: buildMailtoLink({
+                              name: "",
+                              email: "",
+                              topic: tutorial.title,
+                              message: `Hi Xevorith, please send more details about: ${tutorial.title}`
+                            }),
+                            className: "inline-flex items-center gap-1 text-[#00d4ff] transition hover:text-white",
+                            children: [
+                              "Ask by email",
+                              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "size-3 transition-transform group-hover:translate-x-0.5" })
+                            ]
+                          }
+                        )
+                      ] })
                     ] })
                   ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-base font-bold leading-snug text-foreground", children: tutorial.title }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm leading-relaxed text-muted-foreground", children: tutorial.description }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                    "div",
-                    {
-                      className: "mt-4 flex items-center gap-1 text-xs font-semibold opacity-0 transition-opacity group-hover:opacity-100",
-                      style: { color: colors.accent },
-                      children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Read more" }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "size-3 transition-transform group-hover:translate-x-0.5" })
-                      ]
-                    }
-                  ),
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     "div",
                     {
@@ -47487,7 +48646,18 @@ function TutorialsPage() {
       filtered.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { "data-ocid": "tutorials.empty_state", className: "py-20 text-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "mx-auto mb-4 size-12 text-muted-foreground/40" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "No tutorials found in this category yet." })
-      ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "mt-12 grid gap-5 md:grid-cols-3", children: projectIdeas.map((idea) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "glass-card rounded-2xl border border-white/10 p-5 text-sm leading-relaxed text-muted-foreground",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "mb-3 size-5 text-[#00ffc8]" }),
+            idea
+          ]
+        },
+        idea
+      )) })
     ] })
   ] });
 }
@@ -47514,11 +48684,29 @@ const contactRoute = createRoute({
   path: "/contact",
   component: ContactPage
 });
+const privacyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/privacy",
+  component: PrivacyPage
+});
+const termsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/terms",
+  component: TermsPage
+});
+const disclaimerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/disclaimer",
+  component: DisclaimerPage
+});
 const routeTree = rootRoute.addChildren([
   homeRoute,
   tutorialsRoute,
   aboutRoute,
-  contactRoute
+  contactRoute,
+  privacyRoute,
+  termsRoute,
+  disclaimerRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {
