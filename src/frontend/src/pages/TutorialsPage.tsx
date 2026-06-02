@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import {
+  ArrowLeft,
   ArrowRight,
   BookOpen,
   CheckCircle2,
@@ -8,6 +9,7 @@ import {
   Mail,
   Search,
   Send,
+  Wrench,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -434,6 +436,60 @@ const tutorials: Tutorial[] = [
     description:
       "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations.",
   },
+  {
+    id: 36,
+    title: "Design Systems for Builders",
+    category: "UI/UX",
+    duration: "45 min",
+    level: "Beginner",
+    description:
+      "Create colors, typography, spacing, components, and documentation that keep projects consistent.",
+  },
+  {
+    id: 37,
+    title: "Accessibility Audit Basics",
+    category: "UI/UX",
+    duration: "40 min",
+    level: "Intermediate",
+    description:
+      "Check headings, keyboard navigation, contrast, labels, focus states, and meaningful page structure.",
+  },
+  {
+    id: 38,
+    title: "Engineering Portfolio Roadmap",
+    category: "Career",
+    duration: "30 min",
+    level: "Beginner",
+    description:
+      "Plan projects, document decisions, capture screenshots, write case studies, and present your skills clearly.",
+  },
+  {
+    id: 39,
+    title: "Technical Writing for Tutorials",
+    category: "Career",
+    duration: "35 min",
+    level: "Beginner",
+    description:
+      "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations.",
+  },
+];
+
+const buildGuideSteps = [
+  "Pick one clear problem and write a one-sentence goal, target user, and success metric.",
+  "List the parts, tools, software accounts, budget, and safety requirements before buying anything.",
+  "Sketch the architecture: inputs, processing, outputs, power, data storage, and user interface.",
+  "Build the smallest working prototype first, then test each module separately with notes and photos.",
+  "Integrate modules gradually, record failures, and improve wiring, code structure, enclosure, and UX.",
+  "Publish a final guide with setup steps, screenshots, source files, credits, limitations, and maintenance tips.",
+];
+
+const projectIdeas = [
+  "AI camera that counts objects on a workbench",
+  "ESP32 environmental monitor with dashboard",
+  "Raspberry Pi media and backup server",
+  "ROS2 rover with obstacle avoidance",
+  "Portfolio website with tutorial articles",
+  "3D-printed smart enclosure for a sensor node",
 ];
 
 const buildGuideSteps = [
@@ -490,8 +546,312 @@ function buildMailtoLink(data: {
   return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+type ProjectGuide = {
+  components: string[];
+  wiring: string[];
+  steps: string[];
+  code: string;
+};
+
+const guideBlueprints: Record<
+  Tutorial["category"],
+  { components: string[]; wiring: string[]; code: string }
+> = {
+  AI: {
+    components: [
+      "Computer with Python 3.11+",
+      "VS Code",
+      "Dataset folder",
+      "Python packages: numpy, pandas, scikit-learn",
+    ],
+    wiring: [
+      "No physical wiring is required.",
+      "Create folders: data/raw, data/processed, src, models.",
+      "Keep dataset files separate from source code.",
+    ],
+    code: "python -m venv .venv\nsource .venv/bin/activate\npip install pandas scikit-learn joblib\npython src/train.py",
+  },
+  Robotics: {
+    components: [
+      "Robot chassis",
+      "Microcontroller",
+      "Motor driver",
+      "Motors/servos",
+      "Battery pack",
+      "Sensors",
+    ],
+    wiring: [
+      "Battery positive -> switch/fuse -> motor driver VIN.",
+      "All grounds must be common.",
+      "PWM pins connect to motor speed pins; direction pins connect to IN pins.",
+      "Sensors connect to rated VCC, GND, and signal pins.",
+    ],
+    code: "const int motorPwm = 5;\nconst int motorDir = 4;\nvoid setup(){ pinMode(motorPwm, OUTPUT); pinMode(motorDir, OUTPUT); }\nvoid loop(){ digitalWrite(motorDir, HIGH); analogWrite(motorPwm, 120); delay(1000); analogWrite(motorPwm, 0); delay(1000); }",
+  },
+  Electronics: {
+    components: [
+      "Arduino-compatible board",
+      "Breadboard",
+      "Jumper wires",
+      "Sensors/LEDs/resistors",
+      "Multimeter",
+    ],
+    wiring: [
+      "Board GND -> breadboard ground rail.",
+      "Board 5V/3.3V -> positive rail only for compatible parts.",
+      "Signal pins connect to analog or digital inputs.",
+      "LEDs must use current-limiting resistors.",
+    ],
+    code: "const int sensorPin = A0;\nvoid setup(){ Serial.begin(9600); }\nvoid loop(){ Serial.println(analogRead(sensorPin)); delay(250); }",
+  },
+  SBC: {
+    components: [
+      "Raspberry Pi/Jetson/Orange Pi",
+      "microSD or SSD",
+      "Power supply",
+      "Network connection",
+      "Keyboard/monitor or SSH",
+    ],
+    wiring: [
+      "Flash OS image to storage before boot.",
+      "Use official power input.",
+      "Connect network for updates and remote access.",
+      "Use 3.3V-safe GPIO or level shifters for sensors.",
+    ],
+    code: "sudo apt update && sudo apt upgrade -y\nsudo apt install -y python3-venv git\npython3 -m venv .venv\nsource .venv/bin/activate",
+  },
+  "Web Apps": {
+    components: [
+      "Node.js 20+",
+      "Code editor",
+      "Git repository",
+      "Browser",
+      "Hosting account",
+    ],
+    wiring: [
+      "No hardware wiring is required.",
+      "Connect routes to page components.",
+      "Connect forms to mailto or backend APIs.",
+      "Connect production build output to hosting.",
+    ],
+    code: "pnpm create vite my-app --template react-ts\ncd my-app\npnpm install\npnpm dev\npnpm build",
+  },
+  "Game Dev": {
+    components: [
+      "Game engine or HTML canvas",
+      "Keyboard/controller",
+      "Placeholder art",
+      "Sound effects",
+      "Playtest checklist",
+    ],
+    wiring: [
+      "No physical wiring is required.",
+      "Connect input controls to player actions.",
+      "Connect collision events to score/health.",
+      "Connect UI state to restart and game-over screens.",
+    ],
+    code: "function loop(){ updatePlayer(); drawScene(); requestAnimationFrame(loop); }\nloop();",
+  },
+  IoT: {
+    components: [
+      "ESP32 board",
+      "Sensor module",
+      "Breadboard",
+      "Jumper wires",
+      "Wi-Fi network",
+    ],
+    wiring: [
+      "ESP32 3V3 -> sensor VCC.",
+      "ESP32 GND -> sensor GND.",
+      "Sensor data -> safe ESP32 GPIO.",
+      "Add pull-up resistor if the sensor datasheet requires it.",
+    ],
+    code: '#include <WiFi.h>\nvoid setup(){ Serial.begin(115200); }\nvoid loop(){ Serial.println("publish sensor value"); delay(2000); }',
+  },
+  Cybersecurity: {
+    components: [
+      "Authorized computer",
+      "Password manager",
+      "Backup drive",
+      "Updated browser",
+      "Local test VM",
+    ],
+    wiring: [
+      "No physical wiring is required.",
+      "Only test systems you own or have permission to assess.",
+      "Separate labs from personal accounts.",
+      "Keep backups protected.",
+    ],
+    code: "whoami\nuname -a\nss -tulpen\nlast -a | head",
+  },
+  Cloud: {
+    components: [
+      "Cloud account",
+      "Domain/subdomain",
+      "Git repository",
+      "Build output",
+      "Budget alert",
+    ],
+    wiring: [
+      "Connect repository to hosting provider.",
+      "Set DNS records to the deployment target.",
+      "Store secrets as environment variables.",
+      "Enable HTTPS.",
+    ],
+    code: "pnpm install\npnpm build\n# upload dist/ to your host and enable SPA fallback to index.html",
+  },
+  DevOps: {
+    components: [
+      "Git repository",
+      "CI provider",
+      "Lockfile",
+      "Build commands",
+      "Deployment secrets",
+    ],
+    wiring: [
+      "Connect repository to CI.",
+      "Connect CI secrets with least privilege.",
+      "Separate install, typecheck, build, and deploy steps.",
+      "Require passing checks before merge.",
+    ],
+    code: "name: ci\non: [push, pull_request]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: pnpm install --frozen-lockfile\n      - run: pnpm build",
+  },
+  "Data Science": {
+    components: [
+      "Python environment",
+      "CSV/JSON dataset",
+      "Notebook or scripts",
+      "Charting library",
+      "README",
+    ],
+    wiring: [
+      "No physical wiring is required unless using sensors.",
+      "Put raw files in data/raw.",
+      "Write cleaned data to data/processed.",
+      "Save charts under reports/figures.",
+    ],
+    code: "import pandas as pd\ndf = pd.read_csv('data/raw/data.csv')\ndf = df.drop_duplicates().dropna()\nprint(df.describe())",
+  },
+  "Computer Vision": {
+    components: [
+      "USB/CSI camera",
+      "Computer/SBC",
+      "Stable lighting",
+      "Python + OpenCV",
+      "Camera mount",
+    ],
+    wiring: [
+      "Connect camera by USB or CSI ribbon.",
+      "Mount camera firmly.",
+      "Use consistent lighting.",
+      "Use 3.3V-safe GPIO for triggers.",
+    ],
+    code: "import cv2\ncap=cv2.VideoCapture(0)\nok, frame = cap.read()\nprint(ok, frame.shape if ok else None)\ncap.release()",
+  },
+  "3D Printing": {
+    components: [
+      "FDM printer",
+      "PLA/PETG",
+      "Slicer",
+      "Calipers",
+      "Fasteners/inserts",
+    ],
+    wiring: [
+      "No wiring for printed-only parts.",
+      "Plan cable holes before printing enclosures.",
+      "Keep vents clear for electronics.",
+      "Use standoffs or inserts for PCBs.",
+    ],
+    code: "// OpenSCAD box sketch\ncube([80,50,25]);",
+  },
+  Embedded: {
+    components: [
+      "Microcontroller",
+      "Programmer/debugger",
+      "Breadboard/PCB",
+      "Sensor/actuator",
+      "Serial monitor",
+    ],
+    wiring: [
+      "Connect regulated power and GND.",
+      "Connect programming pins as documented.",
+      "Use level shifters for unsafe voltages.",
+      "Add decoupling capacitors near modules.",
+    ],
+    code: "void setup(){ Serial.begin(115200); pinMode(13, OUTPUT); }\nvoid loop(){ digitalWrite(13, !digitalRead(13)); delay(500); }",
+  },
+  "Mobile Apps": {
+    components: [
+      "Computer",
+      "Phone/emulator",
+      "Wireframes",
+      "App icon",
+      "Crash/analytics plan",
+    ],
+    wiring: [
+      "No physical wiring except USB debugging.",
+      "Connect screens through navigation.",
+      "Connect forms to state and APIs.",
+      "Connect storage only after validation.",
+    ],
+    code: "function App(){ return <Text>Xevorith mobile project</Text>; }",
+  },
+  "UI/UX": {
+    components: [
+      "Design tool",
+      "Brand tokens",
+      "Component inventory",
+      "Accessibility checklist",
+      "Prototype",
+    ],
+    wiring: [
+      "No physical wiring is required.",
+      "Connect tokens to components.",
+      "Connect user flows from landing to action to confirmation.",
+      "Connect accessibility notes to interactions.",
+    ],
+    code: ":root { --accent: #00d4ff; --radius-card: 1rem; --space-2: .5rem; }",
+  },
+  Career: {
+    components: [
+      "Portfolio",
+      "Case studies",
+      "Screenshots",
+      "Resume/profile",
+      "Repository links",
+    ],
+    wiring: [
+      "No physical wiring is required.",
+      "Connect each case study to demo and source links.",
+      "Connect contact links to email.",
+      "Connect listed skills to real evidence.",
+    ],
+    code: "## Case Study\nProblem:\nBuild:\nResult:\nLessons learned:",
+  },
+};
+
+function getProjectGuide(tutorial: Tutorial): ProjectGuide {
+  const blueprint = guideBlueprints[tutorial.category];
+  return {
+    components: blueprint.components,
+    wiring: blueprint.wiring,
+    steps: [
+      `Define the goal for ${tutorial.title} and write what success looks like.`,
+      "Collect every component, account, dataset, tool, or library from the checklist before starting.",
+      "Follow the wiring/connection plan carefully and verify power, ground, routes, or folders before running code.",
+      "Create the code or configuration shown below, then run the smallest possible test first.",
+      "Debug one module at a time, document screenshots or serial output, and repeat the test.",
+      `Publish the finished ${tutorial.title} project with setup notes, limitations, final code, and troubleshooting tips.`,
+    ],
+    code: blueprint.code,
+  };
+}
+
 export default function TutorialsPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [selectedTutorial, setSelectedTutorial] = useState<Tutorial | null>(
+    null,
+  );
   const [guideRequest, setGuideRequest] = useState({
     name: "",
     email: "",
@@ -523,6 +883,163 @@ export default function TutorialsPage() {
     event.preventDefault();
     window.location.href = buildMailtoLink(guideRequest);
   };
+
+  const openGuide = (tutorial: Tutorial) => {
+    setSelectedTutorial(tutorial);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  if (selectedTutorial) {
+    const guide = getProjectGuide(selectedTutorial);
+    const colors =
+      categoryColors[selectedTutorial.category] ?? categoryColors.AI;
+
+    return (
+      <div className="relative overflow-hidden px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-5xl">
+          <button
+            type="button"
+            onClick={() => setSelectedTutorial(null)}
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[#00d4ff] transition hover:bg-white/[0.08]"
+          >
+            <ArrowLeft className="size-4" /> Back to tutorials
+          </button>
+
+          <article className="glass-card overflow-hidden rounded-3xl border border-white/10">
+            <div
+              className="p-6 md:p-10"
+              style={{ borderTop: `3px solid ${colors.accent}` }}
+            >
+              <div className="mb-5 flex flex-wrap items-center gap-2">
+                <span
+                  className="rounded-full px-3 py-1 text-xs font-bold"
+                  style={{
+                    background: `${colors.accent}18`,
+                    color: colors.accent,
+                    border: `1px solid ${colors.accent}40`,
+                  }}
+                >
+                  {selectedTutorial.category}
+                </span>
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground">
+                  {selectedTutorial.level}
+                </span>
+                <span className="flex items-center gap-1 rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground">
+                  <Clock className="size-3" /> {selectedTutorial.duration}
+                </span>
+              </div>
+
+              <h1 className="font-display text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
+                {selectedTutorial.title}
+              </h1>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {selectedTutorial.description}
+              </p>
+
+              <div className="mt-8 grid gap-5 md:grid-cols-2">
+                <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+                  <h2 className="mb-4 flex items-center gap-2 font-display text-xl font-bold text-foreground">
+                    <Wrench
+                      className="size-5"
+                      style={{ color: colors.accent }}
+                    />{" "}
+                    Components Required
+                  </h2>
+                  <ul className="space-y-2">
+                    {guide.components.map((component) => (
+                      <li
+                        key={component}
+                        className="flex gap-2 text-sm leading-relaxed text-muted-foreground"
+                      >
+                        <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#00ffc8]" />
+                        {component}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+                  <h2 className="mb-4 flex items-center gap-2 font-display text-xl font-bold text-foreground">
+                    <Layers
+                      className="size-5"
+                      style={{ color: colors.accent }}
+                    />{" "}
+                    Wiring / Connections
+                  </h2>
+                  <ol className="space-y-2">
+                    {guide.wiring.map((wire, index) => (
+                      <li
+                        key={wire}
+                        className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                      >
+                        <span
+                          className="flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-black"
+                          style={{ background: colors.accent }}
+                        >
+                          {index + 1}
+                        </span>
+                        {wire}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              </div>
+
+              <section className="mt-5 rounded-2xl border border-white/10 bg-white/[0.025] p-5">
+                <h2 className="mb-4 font-display text-xl font-bold text-foreground">
+                  Full Step-by-Step Build
+                </h2>
+                <ol className="space-y-3">
+                  {guide.steps.map((step, index) => (
+                    <li
+                      key={step}
+                      className="rounded-xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed text-muted-foreground"
+                    >
+                      <span className="mb-1 block font-bold text-[#00d4ff]">
+                        Step {index + 1}
+                      </span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              <section className="mt-5 rounded-2xl border border-white/10 bg-black/40 p-5">
+                <h2 className="mb-4 font-display text-xl font-bold text-foreground">
+                  Code / Commands
+                </h2>
+                <pre className="max-h-[520px] overflow-auto rounded-xl border border-white/10 bg-black/60 p-4 text-xs leading-relaxed text-[#b8f7ff]">
+                  <code>{guide.code}</code>
+                </pre>
+              </section>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={buildMailtoLink({
+                    name: "",
+                    email: "",
+                    topic: selectedTutorial.title,
+                    message: `Hi Xevorith, I am building ${selectedTutorial.title}. Please help me with the components, wiring, and code.`,
+                  })}
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold text-black transition hover:scale-[1.01]"
+                  style={{ background: colors.accent }}
+                >
+                  <Mail className="size-4" /> Ask help for this project
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setSelectedTutorial(null)}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-bold text-foreground transition hover:bg-white/[0.08]"
+                >
+                  View more tutorials
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative overflow-hidden px-6 py-12 md:py-16">
@@ -859,7 +1376,14 @@ export default function TutorialsPage() {
                         {tutorial.description}
                       </p>
                       <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold">
-                        <span style={{ color: colors.accent }}>Read guide</span>
+                        <button
+                          type="button"
+                          onClick={() => openGuide(tutorial)}
+                          className="text-left transition hover:text-white"
+                          style={{ color: colors.accent }}
+                        >
+                          Read guide
+                        </button>
                         <a
                           href={buildMailtoLink({
                             name: "",
