@@ -8,7 +8,10 @@ import {
 import Layout from "./components/Layout";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
 import HomePage from "./pages/HomePage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 import TutorialsPage from "./pages/TutorialsPage";
 
 const rootRoute = createRootRoute({
@@ -43,11 +46,32 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+const privacyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/privacy",
+  component: PrivacyPage,
+});
+
+const termsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/terms",
+  component: TermsPage,
+});
+
+const disclaimerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/disclaimer",
+  component: DisclaimerPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   tutorialsRoute,
   aboutRoute,
   contactRoute,
+  privacyRoute,
+  termsRoute,
+  disclaimerRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -19,12 +19,16 @@ export default function Layout({ children }: LayoutProps) {
       }}
     >
       {/* Ambient background orbs */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      >
         {/* Top-left cyan orb */}
         <div
           className="absolute -left-40 -top-40 h-[600px] w-[600px] animate-orb-drift rounded-full opacity-[0.14]"
           style={{
-            background: "radial-gradient(circle, rgba(0,212,255,0.8) 0%, rgba(77,159,255,0.4) 40%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(0,212,255,0.8) 0%, rgba(77,159,255,0.4) 40%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -32,7 +36,8 @@ export default function Layout({ children }: LayoutProps) {
         <div
           className="absolute -bottom-60 -right-40 h-[700px] w-[700px] rounded-full opacity-[0.10]"
           style={{
-            background: "radial-gradient(circle, rgba(168,85,247,0.7) 0%, rgba(77,159,255,0.3) 45%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(168,85,247,0.7) 0%, rgba(77,159,255,0.3) 45%, transparent 70%)",
             filter: "blur(100px)",
             animation: "orb-drift 16s ease-in-out infinite reverse",
           }}
@@ -41,7 +46,8 @@ export default function Layout({ children }: LayoutProps) {
         <div
           className="absolute left-1/2 top-1/3 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
           style={{
-            background: "radial-gradient(circle, rgba(0,212,255,0.6) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(0,212,255,0.6) 0%, transparent 70%)",
             filter: "blur(60px)",
             animation: "orb-drift 20s ease-in-out infinite",
           }}
@@ -50,7 +56,8 @@ export default function Layout({ children }: LayoutProps) {
         <div
           className="absolute -right-20 top-20 h-[350px] w-[350px] rounded-full opacity-[0.10]"
           style={{
-            background: "radial-gradient(circle, rgba(0,255,200,0.5) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(0,255,200,0.5) 0%, transparent 70%)",
             filter: "blur(70px)",
             animation: "orb-drift 14s ease-in-out infinite reverse",
           }}
