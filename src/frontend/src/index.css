@@ -21,11 +21,11 @@
     --font-mono: JetBrains Mono;
     --radius: 0.625rem;
 
-    --background: 0.08 0 0;
+    --background: 0 0 0;
     --foreground: 0.92 0 0;
-    --card: 0.12 0.01 260;
+    --card: 0.10 0.01 260;
     --card-foreground: 0.92 0 0;
-    --popover: 0.14 0.01 260;
+    --popover: 0.12 0.01 260;
     --popover-foreground: 0.92 0 0;
 
     --primary: 0.75 0.22 200;
@@ -33,7 +33,7 @@
 
     --secondary: 0.7 0.25 250;
     --secondary-foreground: 0.08 0 0;
-    --muted: 0.18 0 0;
+    --muted: 0.15 0 0;
     --muted-foreground: 0.65 0 0;
 
     --accent: 0.75 0.22 200;
@@ -43,7 +43,7 @@
     --destructive-foreground: 0.98 0 0;
 
     --border: 0.3 0.08 200;
-    --input: 0.14 0.01 260;
+    --input: 0.12 0.01 260;
     --ring: 0.75 0.22 200;
 
     --chart-1: 0.75 0.22 200;
@@ -52,7 +52,7 @@
     --chart-4: 0.7 0.2 50;
     --chart-5: 0.55 0.15 160;
 
-    --sidebar: 0.12 0.01 260;
+    --sidebar: 0.10 0.01 260;
     --sidebar-foreground: 0.92 0 0;
     --sidebar-primary: 0.75 0.22 200;
     --sidebar-primary-foreground: 0.08 0 0;
@@ -63,9 +63,9 @@
   }
 
   .dark {
-    --background: 0.08 0 0;
+    --background: 0 0 0;
     --foreground: 0.92 0 0;
-    --card: 0.12 0.01 260;
+    --card: 0.10 0.01 260;
     --card-foreground: 0.92 0 0;
     --popover: 0.14 0.01 260;
     --popover-foreground: 0.92 0 0;

@@ -143,19 +143,19 @@ export default function HomePage() {
             style={{ lineHeight: 1.05 }}
           >
             <span
-              className="neon-glow"
               style={{
                 background:
                   "linear-gradient(135deg, #00d4ff 0%, #4d9fff 40%, #a855f7 80%, #00ffc8 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                filter: "drop-shadow(0 0 30px rgba(0,212,255,0.5))",
               }}
             >
               Xevorith
             </span>
             <br />
-            <span className="text-foreground">Engineering Lab</span>
+            <span className="text-white">Engineering Lab</span>
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
@@ -177,12 +177,10 @@ export default function HomePage() {
             <Button
               data-ocid="home.hero.cta_button"
               size="lg"
-              className="rounded-full px-8 font-semibold"
+              className="rounded-full px-8 font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,212,255,0.6)]"
               style={{
                 background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
-                color: "#000",
-                boxShadow:
-                  "0 0 32px rgba(0,212,255,0.4), 0 0 64px rgba(0,212,255,0.15)",
+                boxShadow: "0 0 32px rgba(0,212,255,0.45), 0 0 64px rgba(0,212,255,0.18)",
                 border: "none",
               }}
             >
@@ -192,12 +190,14 @@ export default function HomePage() {
               data-ocid="home.hero.learn_button"
               variant="outline"
               size="lg"
-              className="rounded-full px-8 font-semibold"
+              className="rounded-full px-8 font-semibold transition-all duration-300 hover:scale-105"
               style={{
-                background: "rgba(0,212,255,0.05)",
-                border: "1px solid rgba(0,212,255,0.35)",
+                background: "rgba(0,212,255,0.07)",
+                border: "1px solid rgba(0,212,255,0.4)",
                 color: "#00d4ff",
-                backdropFilter: "blur(12px)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "0 0 20px rgba(0,212,255,0.15), inset 0 1px 0 rgba(255,255,255,0.08)",
               }}
             >
               Learn More

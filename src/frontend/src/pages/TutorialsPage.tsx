@@ -164,12 +164,13 @@ export default function TutorialsPage() {
             <span>Learning Center</span>
           </div>
           <h1
-            className="neon-glow font-display text-4xl font-extrabold tracking-tight md:text-5xl"
+            className="font-display text-4xl font-extrabold tracking-tight md:text-5xl"
             style={{
               background: "linear-gradient(135deg, #00d4ff 0%, #a855f7 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              filter: "drop-shadow(0 0 24px rgba(0,212,255,0.4))",
             }}
           >
             Tutorials & Projects
