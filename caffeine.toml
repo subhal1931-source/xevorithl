@@ -5,7 +5,7 @@ id = "my-app"
 name = "my-app"
 
 [workspace]
-include = ["src/**"]
-
-[canisters.frontend]
-depends_on = ["backend"]
+# The current website is a static frontend and does not call the Motoko backend.
+# Limiting deployment to the frontend avoids backend toolchain failures on hosts
+# where mops/moc are not installed.
+include = ["src/frontend"]
