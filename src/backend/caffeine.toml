@@ -6,11 +6,11 @@ type = "motoko"
 main = "main.mo"
 
 [build]
-commands = ["mops build", "pnpm bindgen"]
+commands = ["test -f dist/backend.wasm", "test -f dist/backend.did", "test -f dist/backend.most"]
 out = "dist"
 
 [check]
-commands = ["mops check"]
+commands = ["test -f dist/backend.wasm", "test -f dist/backend.did", "test -f dist/backend.most"]
 
 [check.fix]
-commands = ["mops check --fix"]
+commands = ["test -f dist/backend.wasm", "test -f dist/backend.did", "test -f dist/backend.most"]

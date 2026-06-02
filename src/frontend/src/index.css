@@ -23,7 +23,7 @@
 
     --background: 0 0 0;
     --foreground: 0.92 0 0;
-    --card: 0.10 0.01 260;
+    --card: 0.1 0.01 260;
     --card-foreground: 0.92 0 0;
     --popover: 0.12 0.01 260;
     --popover-foreground: 0.92 0 0;
@@ -52,7 +52,7 @@
     --chart-4: 0.7 0.2 50;
     --chart-5: 0.55 0.15 160;
 
-    --sidebar: 0.10 0.01 260;
+    --sidebar: 0.1 0.01 260;
     --sidebar-foreground: 0.92 0 0;
     --sidebar-primary: 0.75 0.22 200;
     --sidebar-primary-foreground: 0.08 0 0;
@@ -65,7 +65,7 @@
   .dark {
     --background: 0 0 0;
     --foreground: 0.92 0 0;
-    --card: 0.10 0.01 260;
+    --card: 0.1 0.01 260;
     --card-foreground: 0.92 0 0;
     --popover: 0.14 0.01 260;
     --popover-foreground: 0.92 0 0;
