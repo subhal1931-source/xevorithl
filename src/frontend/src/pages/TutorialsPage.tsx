@@ -437,33 +437,6 @@ const tutorials: Tutorial[] = [
       "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations.",
   },
   {
-    id: 36,
-    title: "Design Systems for Builders",
-    category: "UI/UX",
-    duration: "45 min",
-    level: "Beginner",
-    description:
-      "Create colors, typography, spacing, components, and documentation that keep projects consistent.",
-  },
-  {
-    id: 37,
-    title: "Accessibility Audit Basics",
-    category: "UI/UX",
-    duration: "40 min",
-    level: "Intermediate",
-    description:
-      "Check headings, keyboard navigation, contrast, labels, focus states, and meaningful page structure.",
-  },
-  {
-    id: 38,
-    title: "Engineering Portfolio Roadmap",
-    category: "Career",
-    duration: "30 min",
-    level: "Beginner",
-    description:
-      "Plan projects, document decisions, capture screenshots, write case studies, and present your skills clearly.",
-  },
-  {
     id: 39,
     title: "Technical Writing for Tutorials",
     category: "Career",
@@ -472,6 +445,24 @@ const tutorials: Tutorial[] = [
     description:
       "Write guides with prerequisites, steps, troubleshooting, safety notes, and concise explanations.",
   },
+];
+
+const buildGuideSteps = [
+  "Pick one clear problem and write a one-sentence goal, target user, and success metric.",
+  "List the parts, tools, software accounts, budget, and safety requirements before buying anything.",
+  "Sketch the architecture: inputs, processing, outputs, power, data storage, and user interface.",
+  "Build the smallest working prototype first, then test each module separately with notes and photos.",
+  "Integrate modules gradually, record failures, and improve wiring, code structure, enclosure, and UX.",
+  "Publish a final guide with setup steps, screenshots, source files, credits, limitations, and maintenance tips.",
+];
+
+const projectIdeas = [
+  "AI camera that counts objects on a workbench",
+  "ESP32 environmental monitor with dashboard",
+  "Raspberry Pi media and backup server",
+  "ROS2 rover with obstacle avoidance",
+  "Portfolio website with tutorial articles",
+  "3D-printed smart enclosure for a sensor node",
 ];
 
 const buildGuideSteps = [
@@ -553,10 +544,9 @@ type ProjectGuide = {
   code: string;
 };
 
-const guideBlueprints: Record<
-  Tutorial["category"],
-  { components: string[]; wiring: string[]; code: string }
-> = {
+type GuideBlueprint = { components: string[]; wiring: string[]; code: string };
+
+const guideBlueprints: Record<Tutorial["category"], GuideBlueprint> = {
   AI: {
     components: [
       "Computer with Python 3.11+",
@@ -831,7 +821,8 @@ const guideBlueprints: Record<
 };
 
 function getProjectGuide(tutorial: Tutorial): ProjectGuide {
-  const blueprint = guideBlueprints[tutorial.category];
+  const blueprint =
+    guideBlueprints[tutorial.category] ?? guideBlueprints["Web Apps"];
   return {
     components: blueprint.components,
     wiring: blueprint.wiring,
@@ -886,7 +877,9 @@ export default function TutorialsPage() {
 
   const openGuide = (tutorial: Tutorial) => {
     setSelectedTutorial(tutorial);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   if (selectedTutorial) {
