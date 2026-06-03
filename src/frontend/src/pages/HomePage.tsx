@@ -3,8 +3,11 @@ import { cn } from "@/lib/utils";
 import {
   Cpu,
   Gamepad2,
+  Github,
   Globe,
   Palette,
+  Star,
+  Users,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -269,6 +272,118 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Join Community Section */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10 text-center"
+          >
+            <div
+              className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              style={{
+                background: "rgba(168,85,247,0.08)",
+                border: "1px solid rgba(168,85,247,0.3)",
+                color: "#a855f7",
+              }}
+            >
+              <Users className="size-3.5" />
+              <span>Community</span>
+            </div>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+              Join the{" "}
+              <span style={{ color: "#a855f7" }}>Community</span>
+            </h2>
+            <p className="mt-3 max-w-xl mx-auto text-muted-foreground">
+              Follow along, explore project code, and collaborate with Xevorith on GitHub.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center"
+            style={{
+              background: "rgba(168,85,247,0.06)",
+              border: "1px solid rgba(168,85,247,0.25)",
+              boxShadow: "0 0 60px rgba(168,85,247,0.1)",
+            }}
+          >
+            {/* Background glow */}
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(168,85,247,0.6), transparent)",
+              }}
+            />
+            <div
+              className="pointer-events-none absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-3xl"
+              style={{ background: "rgba(168,85,247,0.8)" }}
+            />
+
+            {/* GitHub icon */}
+            <div
+              className="relative mx-auto mb-6 flex size-20 items-center justify-center rounded-2xl"
+              style={{
+                background: "rgba(168,85,247,0.12)",
+                border: "1px solid rgba(168,85,247,0.3)",
+                boxShadow: "0 0 30px rgba(168,85,247,0.3)",
+              }}
+            >
+              <Github className="size-10 text-white" />
+            </div>
+
+            <h3 className="relative font-display text-2xl font-bold text-white md:text-3xl">
+              pradeep-innovation369
+            </h3>
+            <p className="relative mt-2 text-muted-foreground">
+              Xevorith on GitHub — explore source code, open-source projects, and engineering experiments.
+            </p>
+
+            {/* Stats row */}
+            <div className="relative mt-8 flex flex-wrap items-center justify-center gap-6">
+              {[
+                { icon: Github, label: "Open Source Projects" },
+                { icon: Star, label: "Star Our Repos" },
+                { icon: Users, label: "Follow & Collaborate" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Icon className="size-4" style={{ color: "#a855f7" }} />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative mt-8">
+              <a
+                href="https://github.com/pradeep-innovation369"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  className="rounded-full px-10 font-bold text-white transition-all duration-300 hover:scale-105"
+                  style={{
+                    background: "linear-gradient(135deg, #a855f7, #7c3aed)",
+                    boxShadow:
+                      "0 0 32px rgba(168,85,247,0.5), 0 0 64px rgba(168,85,247,0.2)",
+                    border: "none",
+                  }}
+                >
+                  <Github className="mr-2 size-5" />
+                  Follow on GitHub
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
