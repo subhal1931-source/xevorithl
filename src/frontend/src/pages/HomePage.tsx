@@ -294,11 +294,11 @@ export default function HomePage() {
               <span>Community</span>
             </div>
             <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
-              Join the{" "}
-              <span style={{ color: "#a855f7" }}>Community</span>
+              Join the <span style={{ color: "#a855f7" }}>Community</span>
             </h2>
             <p className="mt-3 max-w-xl mx-auto text-muted-foreground">
-              Follow along, explore project code, and collaborate with Xevorith on GitHub.
+              Follow along, explore project code, and collaborate with Xevorith
+              on GitHub.
             </p>
           </motion.div>
 
@@ -343,7 +343,8 @@ export default function HomePage() {
               pradeep-innovation369
             </h3>
             <p className="relative mt-2 text-muted-foreground">
-              Xevorith on GitHub — explore source code, open-source projects, and engineering experiments.
+              Xevorith on GitHub — explore source code, open-source projects,
+              and engineering experiments.
             </p>
 
             {/* Stats row */}
@@ -353,7 +354,10 @@ export default function HomePage() {
                 { icon: Star, label: "Star Our Repos" },
                 { icon: Users, label: "Follow & Collaborate" },
               ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div
+                  key={label}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
                   <Icon className="size-4" style={{ color: "#a855f7" }} />
                   <span>{label}</span>
                 </div>

@@ -27,9 +27,9 @@ export function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 z-[100] px-4 pb-4 md:px-6"
-      role="dialog"
+    <dialog
+      open
+      className="fixed bottom-0 left-0 right-0 top-auto z-[100] m-0 max-w-none border-0 bg-transparent px-4 pb-4 md:px-6"
       aria-label="Cookie consent"
       aria-live="polite"
     >
@@ -110,6 +110,6 @@ export function CookieConsent() {
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }
