@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Link } from "@tanstack/react-router";
 import {
   Cpu,
   Gamepad2,
@@ -159,6 +160,7 @@ export default function HomePage() {
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
             <Button
+              asChild
               data-ocid="home.hero.cta_button"
               size="lg"
               className="rounded-full px-8 font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(0,212,255,0.6)]"
@@ -169,9 +171,10 @@ export default function HomePage() {
                 border: "none",
               }}
             >
-              Get Started
+              <Link to="/contact">Get Started</Link>
             </Button>
             <Button
+              asChild
               data-ocid="home.hero.learn_button"
               variant="outline"
               size="lg"
@@ -186,7 +189,7 @@ export default function HomePage() {
                   "0 0 20px rgba(0,212,255,0.15), inset 0 1px 0 rgba(255,255,255,0.08)",
               }}
             >
-              Learn More
+              <Link to="/tutorials">Learn More</Link>
             </Button>
           </motion.div>
         </motion.div>
@@ -269,6 +272,74 @@ export default function HomePage() {
               );
             })}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Reader Value Section */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+          {[
+            {
+              title: "Original project guides",
+              body: "Every tutorial is written to teach a complete build path, including parts, wiring notes, safe testing steps, troubleshooting ideas, and code where useful.",
+            },
+            {
+              title: "Transparent publishing",
+              body: "Readers can find our About, Contact, Privacy, Terms, and Disclaimer pages from every screen, so ownership, policies, and safety limits are easy to verify.",
+            },
+            {
+              title: "Ad-friendly experience",
+              body: "The site is structured around helpful engineering content first, with clean navigation, accessible text, no deceptive ad prompts, and space for clearly labeled advertising later.",
+            },
+          ].map((item) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="glass-card rounded-2xl border-t-2 border-t-[#00ffc8] p-6"
+            >
+              <h2 className="font-display text-xl font-bold text-foreground">
+                {item.title}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {item.body}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      {/* AdSense Readiness Section */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-[#00d4ff]/20 bg-[#00d4ff]/5 p-8 md:p-10">
+          <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+            Built for useful content and reader trust
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Google AdSense approval is never guaranteed because Google reviews
+            the live site, publisher account, traffic quality, and policy
+            compliance. Xevorith now highlights original educational value,
+            clear navigation, contact details, privacy disclosures, safety
+            disclaimers, and a readable content structure to improve approval
+            readiness.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {[
+              "Publish complete tutorials rather than placeholder cards before applying.",
+              "Keep prohibited, copied, or auto-generated low-value content off the site.",
+              "Use the real AdSense publisher ID in ads.txt after the account is created.",
+              "Test pages on mobile, confirm all buttons work, and keep policy links visible.",
+            ].map((tip) => (
+              <div
+                key={tip}
+                className="rounded-xl border border-white/10 bg-black/20 p-4 text-sm text-muted-foreground"
+              >
+                {tip}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
