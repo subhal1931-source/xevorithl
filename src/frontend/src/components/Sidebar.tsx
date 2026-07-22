@@ -93,7 +93,9 @@ export function Sidebar() {
             className="w-[280px] border-r border-accent/20 bg-background/90 p-0 glass-blur-48"
           >
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <SheetDescription className="sr-only">Site navigation links</SheetDescription>
+            <SheetDescription className="sr-only">
+              Site navigation links
+            </SheetDescription>
             <div className="flex h-full flex-col">
               <div className="flex items-center gap-3 border-b border-accent/15 px-5 py-4">
                 <Cpu className="size-6 text-accent" />

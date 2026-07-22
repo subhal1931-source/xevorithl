@@ -147,7 +147,9 @@ export function Navbar() {
               }}
             >
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <SheetDescription className="sr-only">Site navigation links</SheetDescription>
+              <SheetDescription className="sr-only">
+                Site navigation links
+              </SheetDescription>
               <div className="flex h-full flex-col">
                 <div
                   className="flex items-center justify-between border-b px-5 py-4"
