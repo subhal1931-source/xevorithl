@@ -277,7 +277,7 @@ export default function HomePage() {
 
       {/* Reader Value Section */}
       <section className="px-6 py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {[
             {
               title: "Original project guides",
@@ -286,10 +286,6 @@ export default function HomePage() {
             {
               title: "Transparent publishing",
               body: "Readers can find our About, Contact, Privacy, Terms, and Disclaimer pages from every screen, so ownership, policies, and safety limits are easy to verify.",
-            },
-            {
-              title: "Ad-friendly experience",
-              body: "The site is structured around helpful engineering content first, with clean navigation, accessible text, no deceptive ad prompts, and space for clearly labeled advertising later.",
             },
           ].map((item) => (
             <motion.article
@@ -308,38 +304,6 @@ export default function HomePage() {
               </p>
             </motion.article>
           ))}
-        </div>
-      </section>
-
-      {/* AdSense Readiness Section */}
-      <section className="px-6 py-16 md:py-24">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-[#00d4ff]/20 bg-[#00d4ff]/5 p-8 md:p-10">
-          <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-            Built for useful content and reader trust
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Google AdSense approval is never guaranteed because Google reviews
-            the live site, publisher account, traffic quality, and policy
-            compliance. Xevorith now highlights original educational value,
-            clear navigation, contact details, privacy disclosures, safety
-            disclaimers, and a readable content structure to improve approval
-            readiness.
-          </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {[
-              "Publish complete tutorials rather than placeholder cards before applying.",
-              "Keep prohibited, copied, or auto-generated low-value content off the site.",
-              "Use the real AdSense publisher ID in ads.txt after the account is created.",
-              "Test pages on mobile, confirm all buttons work, and keep policy links visible.",
-            ].map((tip) => (
-              <div
-                key={tip}
-                className="rounded-xl border border-white/10 bg-black/20 p-4 text-sm text-muted-foreground"
-              >
-                {tip}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
