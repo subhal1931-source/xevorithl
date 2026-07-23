@@ -277,7 +277,7 @@ export default function HomePage() {
 
       {/* Reader Value Section */}
       <section className="px-6 py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {[
             {
               title: "Original project guides",
@@ -286,10 +286,6 @@ export default function HomePage() {
             {
               title: "Transparent publishing",
               body: "Readers can find our About, Contact, Privacy, Terms, and Disclaimer pages from every screen, so ownership, policies, and safety limits are easy to verify.",
-            },
-            {
-              title: "Ad-friendly experience",
-              body: "The site is structured around helpful engineering content first, with clean navigation, accessible text, no deceptive ad prompts, and space for clearly labeled advertising later.",
             },
           ].map((item) => (
             <motion.article
