@@ -11,12 +11,22 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BookOpen, Cpu, Home, Info, Mail, Menu, X } from "lucide-react";
+import {
+  BookOpen,
+  Cpu,
+  Home,
+  Info,
+  Mail,
+  Menu,
+  Wrench,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
   { label: "Home", path: "/", icon: Home },
   { label: "Tutorials", path: "/tutorials", icon: BookOpen },
+  { label: "Projects", path: "/projects", icon: Wrench },
   { label: "About", path: "/about", icon: Info },
   { label: "Contact", path: "/contact", icon: Mail },
 ];

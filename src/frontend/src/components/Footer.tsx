@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 const trustLinks = [
+  { label: "Projects", path: "/projects" },
   { label: "About Us", path: "/about" },
   { label: "Contact Us", path: "/contact" },
   { label: "Privacy Policy", path: "/privacy" },

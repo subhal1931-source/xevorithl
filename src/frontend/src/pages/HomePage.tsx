@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 import {
+  ArrowRight,
   Cpu,
   Gamepad2,
   Github,
@@ -9,6 +10,7 @@ import {
   Palette,
   Star,
   Users,
+  Wrench,
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -271,6 +273,53 @@ export default function HomePage() {
                 </motion.div>
               );
             })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Projects Teaser */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="glass-card relative overflow-hidden rounded-2xl border-t-2 border-t-[#00d4ff] p-8 text-center md:p-12"
+          >
+            <div
+              className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              style={{
+                background: "rgba(0,212,255,0.07)",
+                border: "1px solid rgba(0,212,255,0.3)",
+                color: "#00d4ff",
+              }}
+            >
+              <Wrench className="size-3.5" />
+              <span>Our Builds</span>
+            </div>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+              See the Projects We're Actually Building
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+              From a long-range HC-12 RC plane to an ESP32-S3 WiFi
+              quadcopter and real financial calculator tools — read the build
+              notes, wiring, and lessons learned.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 rounded-full px-8 font-bold text-black transition-all duration-300 hover:scale-105"
+              style={{
+                background: "linear-gradient(135deg, #00d4ff, #4d9fff)",
+                boxShadow: "0 0 32px rgba(0,212,255,0.45)",
+                border: "none",
+              }}
+            >
+              <Link to="/projects">
+                View Projects <ArrowRight className="ml-2 size-4" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

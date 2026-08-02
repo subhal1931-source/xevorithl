@@ -11,6 +11,7 @@ import ContactPage from "./pages/ContactPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
 import HomePage from "./pages/HomePage";
 import PrivacyPage from "./pages/PrivacyPage";
+import ProjectsPage from "./pages/ProjectsPage";
 import TermsPage from "./pages/TermsPage";
 import TutorialsPage from "./pages/TutorialsPage";
 
@@ -32,6 +33,12 @@ const tutorialsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/tutorials",
   component: TutorialsPage,
+});
+
+const projectsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/projects",
+  component: ProjectsPage,
 });
 
 const aboutRoute = createRoute({
@@ -67,6 +74,7 @@ const disclaimerRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   homeRoute,
   tutorialsRoute,
+  projectsRoute,
   aboutRoute,
   contactRoute,
   privacyRoute,
